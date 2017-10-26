@@ -9,7 +9,6 @@ using System.Text;
 
 namespace ShopService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "User" in both code and config file together.
     public class User : IUser
     {
         UserController userController;
@@ -20,6 +19,11 @@ namespace ShopService
         public void AddUser(string name, string salt, string pass)
         {
             userController.Add(name, salt, pass);
+        }
+
+        public bool Login(string name, string pass)
+        {
+            return userController.Login(name, pass);
         }
     }
 }

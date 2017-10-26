@@ -13,5 +13,8 @@ namespace ShopService
     {
         [OperationContract]
         void AddUser(string name, string salt, string pass);
+
+        [OperationContract]
+        bool Login(string name, string pass);
     }
 }

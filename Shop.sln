@@ -14,6 +14,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBusiness", "ShopBusines
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopService", "ShopService\ShopService.csproj", "{33213CDB-06C2-43A8-9C78-E4172B36E61B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopFormsClient", "ShopFormsClient\ShopFormsClient.csproj", "{168B5A59-422F-407E-8D27-4650F1C582DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{33213CDB-06C2-43A8-9C78-E4172B36E61B} = {33213CDB-06C2-43A8-9C78-E4172B36E61B}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +41,10 @@ Global
 		{33213CDB-06C2-43A8-9C78-E4172B36E61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33213CDB-06C2-43A8-9C78-E4172B36E61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33213CDB-06C2-43A8-9C78-E4172B36E61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{168B5A59-422F-407E-8D27-4650F1C582DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168B5A59-422F-407E-8D27-4650F1C582DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168B5A59-422F-407E-8D27-4650F1C582DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{168B5A59-422F-407E-8D27-4650F1C582DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

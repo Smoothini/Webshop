@@ -26,5 +26,13 @@ namespace ShopBusiness
             userModel.Users.Add(user);
             userModel.SaveChanges();
         }
+
+        public bool Login(string username, string password)
+        {
+            user = new User();
+            user = userModel.Users.SingleOrDefault(x => x.Username == username &&
+                                            x.Password == password);
+            return user==null;
+        }
     }
 }
