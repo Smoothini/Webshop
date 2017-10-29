@@ -16,11 +16,11 @@ namespace ShopData
         public string Username { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(5)]
         public string Salt { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(64)]
         public string Password { get; set; }
     }
 }

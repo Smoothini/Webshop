@@ -89,5 +89,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShopBusiness\ShopBusiness.csproj">
+      <Project>{e8ae30e6-e896-4c35-b9d8-295b10d74757}</Project>
+      <Name>ShopBusiness</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

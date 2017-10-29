@@ -12,7 +12,7 @@ namespace ShopService
     public interface IUser
     {
         [OperationContract]
-        void AddUser(string name, string salt, string pass);
+        void AddUser(string name, string pass);
 
         [OperationContract]
         bool Login(string name, string pass);

@@ -16,9 +16,9 @@ namespace ShopService
         {
             userController = new UserController();
         }
-        public void AddUser(string name, string salt, string pass)
+        public void AddUser(string name, string pass)
         {
-            userController.Add(name, salt, pass);
+            userController.Add(name, pass);
         }
 
         public bool Login(string name, string pass)
