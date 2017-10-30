@@ -19,7 +19,6 @@ namespace ShopFormsClient
             InitializeComponent();
             errorLabel.Hide();
             user = new UserReference.UserClient();
-            main = new MainWindow();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -34,6 +33,7 @@ namespace ShopFormsClient
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            main = new MainWindow();
             if (isValid(userTextBox.Text, passwordTextBox.Text))
                 if (user.Login(userTextBox.Text, passwordTextBox.Text))
                     main.Show();
