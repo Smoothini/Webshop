@@ -12,16 +12,35 @@
   <wsdl:message name="IUser_AddUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IUser_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUser">
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IUser/AddUser" message="tns:IUser_AddUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUser/AddUserResponse" message="tns:IUser_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Login" message="tns:IUser_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/LoginResponse" message="tns:IUser_Login_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUser" type="tns:IUser">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AddUser">
       <soap:operation soapAction="http://tempuri.org/IUser/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IUser/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

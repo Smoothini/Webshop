@@ -53,10 +53,7 @@ namespace ShopBusiness
         public bool Login(string username, string password)
         {
             user = new User();
-            //user = userModel.Users.SingleOrDefault(x => x.Username == username &&
-            //                                password.Equals(Hasher((x.Password + x.Salt).ToString())));
             user = userModel.Users.SingleOrDefault(x => x.Username == username);
-
             bool access = String.Equals(user.Password, Hasher(password + user.Salt), StringComparison.Ordinal);
             return access;
         }

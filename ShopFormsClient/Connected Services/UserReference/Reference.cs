@@ -16,10 +16,16 @@ namespace ShopFormsClient.UserReference {
     public interface IUser {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddUser", ReplyAction="http://tempuri.org/IUser/AddUserResponse")]
-        void AddUser(string name, string salt, string pass);
+        void AddUser(string name, string pass);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddUser", ReplyAction="http://tempuri.org/IUser/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(string name, string salt, string pass);
+        System.Threading.Tasks.Task AddUserAsync(string name, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Login", ReplyAction="http://tempuri.org/IUser/LoginResponse")]
+        bool Login(string name, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Login", ReplyAction="http://tempuri.org/IUser/LoginResponse")]
+        System.Threading.Tasks.Task<bool> LoginAsync(string name, string pass);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +55,20 @@ namespace ShopFormsClient.UserReference {
                 base(binding, remoteAddress) {
         }
         
-        public void AddUser(string name, string salt, string pass) {
-            base.Channel.AddUser(name, salt, pass);
+        public void AddUser(string name, string pass) {
+            base.Channel.AddUser(name, pass);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(string name, string salt, string pass) {
-            return base.Channel.AddUserAsync(name, salt, pass);
+        public System.Threading.Tasks.Task AddUserAsync(string name, string pass) {
+            return base.Channel.AddUserAsync(name, pass);
+        }
+        
+        public bool Login(string name, string pass) {
+            return base.Channel.Login(name, pass);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LoginAsync(string name, string pass) {
+            return base.Channel.LoginAsync(name, pass);
         }
     }
 }
