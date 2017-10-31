@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ShopData;
-using static ShopData.User;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 
