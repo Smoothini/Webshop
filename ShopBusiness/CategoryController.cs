@@ -7,7 +7,7 @@ using ShopData;
 
 namespace ShopBusiness
 {
-    class CategoryController : IController<Category>
+    public class CategoryController : IController<Category>
     {
         ShopModel model;
         Category category;
@@ -25,10 +25,9 @@ namespace ShopBusiness
             category = model.Categories.SingleOrDefault(x => x.Name == name);
             if (category == null)
             {
-                category = new Category()
-                {
-                    Name = name
-                };
+                category = new Category();
+                category.Name = name;
+                model.Categories.Add(category);
                 model.SaveChanges();
             }
             else
@@ -56,7 +55,17 @@ namespace ShopBusiness
         }
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            bool isDeleted = true;
+            category = new Category();
+            category = model.Categories.SingleOrDefault(x => x.Category_Id == id);
+            if (category != null)
+            {
+                model.Categories.Remove(category);
+                model.SaveChanges();
+            }
+            else
+                isDeleted = false;
+            return isDeleted;
         }
 
     }
