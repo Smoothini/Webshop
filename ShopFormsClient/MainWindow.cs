@@ -12,9 +12,16 @@ namespace ShopFormsClient
 {
     public partial class MainWindow : Form
     {
+        UserWindow userWindow;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void userButton_Click(object sender, EventArgs e)
+        {
+            userWindow = new UserWindow();
+            userWindow.Show();
         }
     }
 }
