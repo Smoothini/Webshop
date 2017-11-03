@@ -16,7 +16,6 @@ namespace ShopData
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Product_Id { get; set; }
 
         [Required]
