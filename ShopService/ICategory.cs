@@ -20,6 +20,9 @@ namespace ShopService
         bool UpdateCategory(int id);
 
         [OperationContract]
-        bool DeleteCategory(int id);
+        bool DeleteCategory(string name);
+
+        [OperationContract]
+        List<string> GetCategoriesAsList();
     }
 }

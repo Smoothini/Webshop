@@ -50,6 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryWindow.Designer.cs">
+      <DependentUpon>CategoryWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CategoryReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\UserReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,11 +86,9 @@
     <Compile Include="UserWindow.Designer.cs">
       <DependentUpon>UserWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="WebshopUserDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WebshopUserDataSet.xsd</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="CategoryWindow.resx">
+      <DependentUpon>CategoryWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,9 +104,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserWindow.resx">
-      <DependentUpon>UserWindow.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="Connected Services\CategoryReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryReference\service.wsdl" />
+    <None Include="Connected Services\CategoryReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\UserReference\service.wsdl" />
     <None Include="Connected Services\UserReference\service.xsd">
       <SubType>Designer</SubType>
@@ -114,17 +130,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="WebshopUserDataSet.xsc">
-      <DependentUpon>WebshopUserDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="WebshopUserDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>WebshopUserDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="WebshopUserDataSet.xss">
-      <DependentUpon>WebshopUserDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -133,6 +138,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CategoryReference\" />
     <WCFMetadataStorage Include="Connected Services\UserReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +149,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\UserReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CategoryReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CategoryReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CategoryReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

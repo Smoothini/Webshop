@@ -13,15 +13,30 @@ namespace ShopFormsClient
     public partial class MainWindow : Form
     {
         UserWindow userWindow;
+        CategoryWindow categoryWindow;
         public MainWindow()
         {
             InitializeComponent();
+            categoryWindow = new CategoryWindow();
         }
 
-        private void userButton_Click(object sender, EventArgs e)
+        private void UsersButton_Click(object sender, EventArgs e)
         {
-            userWindow = new UserWindow();
-            userWindow.Show();
+        }
+
+        private void OrdersButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CategoriesButton_Click(object sender, EventArgs e)
+        {
+            categoryWindow.Show();
+        }
+
+        private void ProductsButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

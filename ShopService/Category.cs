@@ -31,11 +31,14 @@ namespace ShopService
             return categoryController.Update(id);
         }
 
-        public bool DeleteCategory(int id)
+        public bool DeleteCategory(string name)
         {
-            return categoryController.Delete(id);
+            return categoryController.DeleteByName(name);
         }
 
-
+        public List<string> GetCategoriesAsList()
+        {
+            return categoryController.GetCategoriesAsList();
+        }
     }
 }

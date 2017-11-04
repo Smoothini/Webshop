@@ -49,6 +49,16 @@ namespace ShopBusiness
             return categories;
         }
 
+        public List<string> GetCategoriesAsList()
+        {
+            List<string> cats = new List<string>();
+            categories = new List<Category>();
+            categories = model.Categories.ToList();
+            foreach (Category category in categories)
+                cats.Add(category.Name.ToString());
+            return cats;
+        }
+
         public bool Update(int id)
         {
             throw new NotImplementedException();
@@ -58,6 +68,21 @@ namespace ShopBusiness
             bool isDeleted = true;
             category = new Category();
             category = model.Categories.SingleOrDefault(x => x.Category_Id == id);
+            if (category != null)
+            {
+                model.Categories.Remove(category);
+                model.SaveChanges();
+            }
+            else
+                isDeleted = false;
+            return isDeleted;
+        }
+
+        public bool DeleteByName(string name)
+        {
+            bool isDeleted = true;
+            category = new Category();
+            category = model.Categories.SingleOrDefault(x => x.Name == name);
             if (category != null)
             {
                 model.Categories.Remove(category);
