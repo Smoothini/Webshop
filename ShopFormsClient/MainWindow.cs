@@ -15,6 +15,7 @@ namespace ShopFormsClient
         UserWindow userWindow;
         CategoryWindow categoryWindow;
         ProductWindow productWindow;
+        OrderWindow orderWindow;
         public MainWindow()
         {
             InitializeComponent();
@@ -22,11 +23,14 @@ namespace ShopFormsClient
 
         private void UsersButton_Click(object sender, EventArgs e)
         {
+            userWindow = new UserWindow();
+            userWindow.Show();
         }
 
         private void OrdersButton_Click(object sender, EventArgs e)
         {
-
+            orderWindow = new OrderWindow();
+            orderWindow.Show();
         }
 
         private void CategoriesButton_Click(object sender, EventArgs e)

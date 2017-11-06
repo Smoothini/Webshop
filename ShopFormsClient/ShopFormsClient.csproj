@@ -83,6 +83,12 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderWindow.Designer.cs">
+      <DependentUpon>OrderWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserWindow.resx">
+      <DependentUpon>UserWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Connected Services\CategoryReference\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
