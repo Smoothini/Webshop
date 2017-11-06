@@ -4,34 +4,85 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IUser_AddUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddUser" />
-  </wsdl:message>
-  <wsdl:message name="IUser_AddUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddUserResponse" />
-  </wsdl:message>
   <wsdl:message name="IUser_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
   <wsdl:message name="IUser_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IUser_AdminLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdminLogin" />
+  </wsdl:message>
+  <wsdl:message name="IUser_AdminLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdminLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUser_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetUsersAsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersAsList" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetUsersAsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersAsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUser_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IUser_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUser">
-    <wsdl:operation name="AddUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUser/AddUser" message="tns:IUser_AddUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUser/AddUserResponse" message="tns:IUser_AddUser_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IUser/Login" message="tns:IUser_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUser/LoginResponse" message="tns:IUser_Login_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AdminLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/AdminLogin" message="tns:IUser_AdminLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/AdminLoginResponse" message="tns:IUser_AdminLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/CreateUser" message="tns:IUser_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/CreateUserResponse" message="tns:IUser_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersAsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetUsersAsList" message="tns:IUser_GetUsersAsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetUsersAsListResponse" message="tns:IUser_GetUsersAsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetUserDetails" message="tns:IUser_GetUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetUserDetailsResponse" message="tns:IUser_GetUserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/UpdateUser" message="tns:IUser_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/UpdateUserResponse" message="tns:IUser_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/DeleteUser" message="tns:IUser_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/DeleteUserResponse" message="tns:IUser_DeleteUser_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUser" type="tns:IUser">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="AddUser">
-      <soap:operation soapAction="http://tempuri.org/IUser/AddUser" style="document" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IUser/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -39,8 +90,53 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <soap:operation soapAction="http://tempuri.org/IUser/Login" style="document" />
+    <wsdl:operation name="AdminLogin">
+      <soap:operation soapAction="http://tempuri.org/IUser/AdminLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IUser/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersAsList">
+      <soap:operation soapAction="http://tempuri.org/IUser/GetUsersAsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/IUser/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IUser/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IUser/DeleteUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

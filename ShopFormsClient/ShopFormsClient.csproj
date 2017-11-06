@@ -147,6 +147,9 @@
     <None Include="Connected Services\ProductReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\UserReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\UserReference\service.wsdl" />
     <None Include="Connected Services\UserReference\service.xsd">
       <SubType>Designer</SubType>

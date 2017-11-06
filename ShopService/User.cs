@@ -29,20 +29,25 @@ namespace ShopService
         {
             return userController.Create(name, pass);
         }
-        
-        public void ReadUser()
-        {
-            //to be made god pls help me
-            throw new NotImplementedException();
-        }
 
         public bool UpdateUser(int id)
         {
-            return userController.Update(id);
+            //TODO in webapp
+            return true;
         }
-        public bool DeleteUser(int id)
+        public bool DeleteUser(string user)
         {
-            return userController.Delete(id);
+            return userController.Delete(user);
+        }
+
+        public List<string> GetUsersAsList()
+        {
+            return userController.GetUsersAsList();
+        }
+
+        public string[] GetUserDetails(string user)
+        {
+            return userController.GetUserDetails(user);
         }
     }
 }

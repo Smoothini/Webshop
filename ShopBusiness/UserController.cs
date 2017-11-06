@@ -63,35 +63,24 @@ namespace ShopBusiness
                 isCreated = false;
             return isCreated;
         }
-        //Read user by id
-        public User Read(int id)
-        {
-            user = new User();
-            user = userModel.Users.SingleOrDefault(x => x.User_ID == id);
-            return user;
-        }
-        //Read all users to a list
-        public List<User> ReadAll()
-        {
-            users = new List<User>();
-            users = userModel.Users.ToList();
-            return users;
-        }
+        
         //Update user by id
         public bool Update(int id)
         {
             bool isUpdated = true;
-            // TO be done later maybe
+            // TO be done in web app
+            // will update User_Information
             return isUpdated;
         }
         //Delete user by id
-        public bool Delete(int id)
+        public bool Delete(string username)
         {
             bool isDeleted = true;
             user = new User();
-            user = userModel.Users.SingleOrDefault(x => x.User_ID == id);
+            user = userModel.Users.SingleOrDefault(x => x.Username == username);
             if (user != null)
             {
+                userModel.User_Information.Remove(user.User_Information);
                 userModel.Users.Remove(user);
                 userModel.SaveChanges();
             }
@@ -115,6 +104,52 @@ namespace ShopBusiness
             user = userModel.Users.SingleOrDefault(x => x.Username == username);
             bool access = String.Equals(user.Password, Hasher(password + user.Salt), StringComparison.Ordinal) && user.Role == true;
             return access;
+        }
+
+        public List<string> GetUsersAsList()
+        {
+            List<string> usernames = new List<string>();
+            users = new List<User>();
+            users = userModel.Users.ToList<User>();
+            foreach (User u in users)
+                usernames.Add(u.Username);
+            return usernames;
+        }
+
+        public string[] GetUserDetails(string username)
+        {
+            string[] details = new string[4];
+            user = new User();
+            User_Information info;
+            user = userModel.Users.SingleOrDefault(x => x.Username == username);
+            if(user != null)
+            {
+                info = userModel.User_Information.SingleOrDefault(x => x.User_Id == user.User_ID);
+                if (info != null)
+                {
+                    if (info.Name != null)
+                        details[0] = user.User_Information.Name;
+                    else
+                        details[0] = "NO VALUE SET";
+
+
+                    if (info.Email != null)
+                        details[1] = user.User_Information.Email;
+                    else
+                        details[1] = "NO VALUE SET";
+
+                    if (info.Address != null)
+                        details[2] = user.User_Information.Address;
+                    else
+                        details[2] = "NO VALUE SET";
+
+                    if (info.Phone != null)
+                        details[3] = user.User_Information.Phone;
+                    else
+                        details[3] = "NO VALUE SET";
+                }
+            }
+            return details;
         }
     }
 }

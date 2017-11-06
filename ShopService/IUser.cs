@@ -21,12 +21,15 @@ namespace ShopService
         bool CreateUser(string name, string pass);
 
         [OperationContract]
-        void ReadUser();
+        List<string> GetUsersAsList();
+
+        [OperationContract]
+        string[] GetUserDetails(string user);
 
         [OperationContract]
         bool UpdateUser(int id);
 
         [OperationContract]
-        bool DeleteUser(int id);
+        bool DeleteUser(string user);
     }
 }

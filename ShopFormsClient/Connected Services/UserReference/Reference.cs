@@ -15,17 +15,47 @@ namespace ShopFormsClient.UserReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="UserReference.IUser")]
     public interface IUser {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddUser", ReplyAction="http://tempuri.org/IUser/AddUserResponse")]
-        void AddUser(string name, string pass);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddUser", ReplyAction="http://tempuri.org/IUser/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(string name, string pass);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Login", ReplyAction="http://tempuri.org/IUser/LoginResponse")]
         bool Login(string name, string pass);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Login", ReplyAction="http://tempuri.org/IUser/LoginResponse")]
         System.Threading.Tasks.Task<bool> LoginAsync(string name, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AdminLogin", ReplyAction="http://tempuri.org/IUser/AdminLoginResponse")]
+        bool AdminLogin(string name, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AdminLogin", ReplyAction="http://tempuri.org/IUser/AdminLoginResponse")]
+        System.Threading.Tasks.Task<bool> AdminLoginAsync(string name, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/CreateUser", ReplyAction="http://tempuri.org/IUser/CreateUserResponse")]
+        bool CreateUser(string name, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/CreateUser", ReplyAction="http://tempuri.org/IUser/CreateUserResponse")]
+        System.Threading.Tasks.Task<bool> CreateUserAsync(string name, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUsersAsList", ReplyAction="http://tempuri.org/IUser/GetUsersAsListResponse")]
+        string[] GetUsersAsList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUsersAsList", ReplyAction="http://tempuri.org/IUser/GetUsersAsListResponse")]
+        System.Threading.Tasks.Task<string[]> GetUsersAsListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUserDetails", ReplyAction="http://tempuri.org/IUser/GetUserDetailsResponse")]
+        string[] GetUserDetails(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUserDetails", ReplyAction="http://tempuri.org/IUser/GetUserDetailsResponse")]
+        System.Threading.Tasks.Task<string[]> GetUserDetailsAsync(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/UpdateUser", ReplyAction="http://tempuri.org/IUser/UpdateUserResponse")]
+        bool UpdateUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/UpdateUser", ReplyAction="http://tempuri.org/IUser/UpdateUserResponse")]
+        System.Threading.Tasks.Task<bool> UpdateUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/DeleteUser", ReplyAction="http://tempuri.org/IUser/DeleteUserResponse")]
+        bool DeleteUser(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/DeleteUser", ReplyAction="http://tempuri.org/IUser/DeleteUserResponse")]
+        System.Threading.Tasks.Task<bool> DeleteUserAsync(string user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,20 +85,60 @@ namespace ShopFormsClient.UserReference {
                 base(binding, remoteAddress) {
         }
         
-        public void AddUser(string name, string pass) {
-            base.Channel.AddUser(name, pass);
-        }
-        
-        public System.Threading.Tasks.Task AddUserAsync(string name, string pass) {
-            return base.Channel.AddUserAsync(name, pass);
-        }
-        
         public bool Login(string name, string pass) {
             return base.Channel.Login(name, pass);
         }
         
         public System.Threading.Tasks.Task<bool> LoginAsync(string name, string pass) {
             return base.Channel.LoginAsync(name, pass);
+        }
+        
+        public bool AdminLogin(string name, string pass) {
+            return base.Channel.AdminLogin(name, pass);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AdminLoginAsync(string name, string pass) {
+            return base.Channel.AdminLoginAsync(name, pass);
+        }
+        
+        public bool CreateUser(string name, string pass) {
+            return base.Channel.CreateUser(name, pass);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateUserAsync(string name, string pass) {
+            return base.Channel.CreateUserAsync(name, pass);
+        }
+        
+        public string[] GetUsersAsList() {
+            return base.Channel.GetUsersAsList();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetUsersAsListAsync() {
+            return base.Channel.GetUsersAsListAsync();
+        }
+        
+        public string[] GetUserDetails(string user) {
+            return base.Channel.GetUserDetails(user);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetUserDetailsAsync(string user) {
+            return base.Channel.GetUserDetailsAsync(user);
+        }
+        
+        public bool UpdateUser(int id) {
+            return base.Channel.UpdateUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateUserAsync(int id) {
+            return base.Channel.UpdateUserAsync(id);
+        }
+        
+        public bool DeleteUser(string user) {
+            return base.Channel.DeleteUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteUserAsync(string user) {
+            return base.Channel.DeleteUserAsync(user);
         }
     }
 }
