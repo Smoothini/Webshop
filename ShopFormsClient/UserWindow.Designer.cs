@@ -255,9 +255,8 @@
             this.messageDelete.AutoSize = true;
             this.messageDelete.Location = new System.Drawing.Point(163, 167);
             this.messageDelete.Name = "messageDelete";
-            this.messageDelete.Size = new System.Drawing.Size(23, 13);
+            this.messageDelete.Size = new System.Drawing.Size(0, 13);
             this.messageDelete.TabIndex = 5;
-            this.messageDelete.Text = "Del";
             // 
             // UserWindow
             // 

@@ -45,8 +45,8 @@ namespace ShopFormsClient
                 string[] details = new string[4];
                 details = userRef.GetUserDetails(usersBox.SelectedItem.ToString());
                 nameBox.Text = details[0];
-                addressBox.Text = details[1];
-                emailBox.Text = details[2];
+                emailBox.Text = details[1];
+                addressBox.Text = details[2];
                 phoneBox.Text = details[3];
             }
         }
