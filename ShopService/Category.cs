@@ -26,9 +26,9 @@ namespace ShopService
             //To be made in china
             throw new NotImplementedException();
         }
-        public bool UpdateCategory(int id)
+        public bool UpdateCategory(string oldName, string newName)
         {
-            return categoryController.Update(id);
+            return categoryController.Update(oldName, newName);
         }
 
         public bool DeleteCategory(string name)

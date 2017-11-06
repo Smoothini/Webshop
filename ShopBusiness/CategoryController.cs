@@ -7,7 +7,7 @@ using ShopData;
 
 namespace ShopBusiness
 {
-    public class CategoryController : IController<Category>
+    public class CategoryController
     {
         ShopModel model;
         Category category;
@@ -59,10 +59,26 @@ namespace ShopBusiness
             return cats;
         }
 
-        public bool Update(int id)
+        public bool Update(string oldName, string newName)
         {
-            throw new NotImplementedException();
+            bool isRenamed = true;
+            category = new Category();
+            category = model.Categories.SingleOrDefault(x => x.Name == oldName);
+            if (category != null)
+            {
+                if (model.Categories.SingleOrDefault(x => x.Name == newName) == null)
+                {
+                    category.Name = newName;
+                    model.SaveChanges();
+                }
+                else
+                    isRenamed = false;
+            }
+            else
+                isRenamed = false;
+            return isRenamed;
         }
+
         public bool Delete(int id)
         {
             bool isDeleted = true;

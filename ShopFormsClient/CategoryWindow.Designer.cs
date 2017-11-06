@@ -36,9 +36,9 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.categoriesBox = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.renameButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.newNameBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -122,15 +122,17 @@
             this.categoriesBox.Name = "categoriesBox";
             this.categoriesBox.Size = new System.Drawing.Size(152, 134);
             this.categoriesBox.TabIndex = 2;
+            this.categoriesBox.SelectedIndexChanged += new System.EventHandler(this.categoriesBox_SelectedIndexChanged);
             // 
-            // button1
+            // renameButton
             // 
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Rename Selected";
-            this.button1.UseVisualStyleBackColor = true;
+            this.renameButton.Location = new System.Drawing.Point(6, 19);
+            this.renameButton.Name = "renameButton";
+            this.renameButton.Size = new System.Drawing.Size(164, 23);
+            this.renameButton.TabIndex = 4;
+            this.renameButton.Text = "Rename Selected";
+            this.renameButton.UseVisualStyleBackColor = true;
+            this.renameButton.Click += new System.EventHandler(this.renameButton_Click);
             // 
             // label3
             // 
@@ -141,13 +143,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "New name";
             // 
-            // textBox1
+            // newNameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(70, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "to be implemented";
+            this.newNameBox.Location = new System.Drawing.Point(70, 48);
+            this.newNameBox.Name = "newNameBox";
+            this.newNameBox.Size = new System.Drawing.Size(100, 20);
+            this.newNameBox.TabIndex = 6;
             // 
             // groupBox2
             // 
@@ -161,9 +162,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.renameButton);
             this.groupBox3.Controls.Add(this.deleteButton);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.newNameBox);
             this.groupBox3.Controls.Add(this.refreshButton);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(12, 177);
@@ -183,6 +184,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "CategoryWindow";
             this.Text = "Category Management Window";
+            this.Load += new System.EventHandler(this.CategoryWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -202,9 +204,9 @@
         private System.Windows.Forms.ListBox categoriesBox;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button renameButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox newNameBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
     }

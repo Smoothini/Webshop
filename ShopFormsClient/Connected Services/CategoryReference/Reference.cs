@@ -28,10 +28,10 @@ namespace ShopFormsClient.CategoryReference {
         System.Threading.Tasks.Task ReadCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/UpdateCategory", ReplyAction="http://tempuri.org/ICategory/UpdateCategoryResponse")]
-        bool UpdateCategory(int id);
+        bool UpdateCategory(string oldName, string newName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/UpdateCategory", ReplyAction="http://tempuri.org/ICategory/UpdateCategoryResponse")]
-        System.Threading.Tasks.Task<bool> UpdateCategoryAsync(int id);
+        System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/DeleteCategory", ReplyAction="http://tempuri.org/ICategory/DeleteCategoryResponse")]
         bool DeleteCategory(string name);
@@ -89,12 +89,12 @@ namespace ShopFormsClient.CategoryReference {
             return base.Channel.ReadCategoryAsync(id);
         }
         
-        public bool UpdateCategory(int id) {
-            return base.Channel.UpdateCategory(id);
+        public bool UpdateCategory(string oldName, string newName) {
+            return base.Channel.UpdateCategory(oldName, newName);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateCategoryAsync(int id) {
-            return base.Channel.UpdateCategoryAsync(id);
+        public System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName) {
+            return base.Channel.UpdateCategoryAsync(oldName, newName);
         }
         
         public bool DeleteCategory(string name) {

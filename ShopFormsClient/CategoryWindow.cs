@@ -17,6 +17,10 @@ namespace ShopFormsClient
         {
             InitializeComponent();
             categoryRef = new CategoryReference.CategoryClient();
+        }
+
+        private void CategoryWindow_Load(object sender, EventArgs e)
+        {
             refreshButton.PerformClick();
         }
 
@@ -27,12 +31,24 @@ namespace ShopFormsClient
                 createLabel.Text = "Category successfuly created";
             else
                 createLabel.Text = "Category already exists";
+            newCategory.Clear();
+            refreshButton.PerformClick();
+        }
+        private void renameButton_Click(object sender, EventArgs e)
+        {
+            createLabel.Visible = true;
+            if (categoryRef.UpdateCategory(categoriesBox.SelectedItem.ToString(), newNameBox.Text.ToString()))
+                createLabel.Text = "Succesfully renamed";
+            else
+                createLabel.Text = "Already exists";
+            newNameBox.Clear();
             refreshButton.PerformClick();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            categoryRef.DeleteCategory(categoriesBox.SelectedItem.ToString());
+            if (categoryRef.DeleteCategory(categoriesBox.SelectedItem.ToString()))
+                createLabel.Text = "Category succesfully deleted";
             refreshButton.PerformClick();
         }
 
@@ -45,6 +61,13 @@ namespace ShopFormsClient
                 categoriesBox.Items.Add(cat);
             }
         }
-        
+
+        private void categoriesBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (categoriesBox.SelectedItem == null)
+                newNameBox.Clear();
+            else
+                newNameBox.Text = categoriesBox.SelectedItem.ToString();
+        }
     }
 }

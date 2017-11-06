@@ -17,7 +17,7 @@ namespace ShopService
         void ReadCategory(int id);
 
         [OperationContract]
-        bool UpdateCategory(int id);
+        bool UpdateCategory(string oldName, string newName);
 
         [OperationContract]
         bool DeleteCategory(string name);
