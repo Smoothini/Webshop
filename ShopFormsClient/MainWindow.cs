@@ -14,10 +14,10 @@ namespace ShopFormsClient
     {
         UserWindow userWindow;
         CategoryWindow categoryWindow;
+        ProductWindow productWindow;
         public MainWindow()
         {
             InitializeComponent();
-            categoryWindow = new CategoryWindow();
         }
 
         private void UsersButton_Click(object sender, EventArgs e)
@@ -31,12 +31,14 @@ namespace ShopFormsClient
 
         private void CategoriesButton_Click(object sender, EventArgs e)
         {
+            categoryWindow = new CategoryWindow();
             categoryWindow.Show();
         }
 
         private void ProductsButton_Click(object sender, EventArgs e)
         {
-
+            productWindow = new ProductWindow();
+            productWindow.Show();
         }
     }
 }

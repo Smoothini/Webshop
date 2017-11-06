@@ -109,5 +109,25 @@ namespace ShopBusiness
             return isDeleted;
         }
 
+        public int NameToId(string name)
+        {
+            category = new Category();
+            category = model.Categories.SingleOrDefault(x => x.Name == name);
+            if (category != null)
+                return category.Category_Id;
+            else
+                return -1;
+        }
+
+        public string IdToName(int id)
+        {
+            category = new Category();
+            category = model.Categories.SingleOrDefault(x => x.Category_Id == id);
+            if (category != null)
+                return category.Name;
+            else
+                return null;
+        }
+
     }
 }

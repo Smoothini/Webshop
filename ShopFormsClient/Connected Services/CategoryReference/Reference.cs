@@ -44,6 +44,18 @@ namespace ShopFormsClient.CategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetCategoriesAsList", ReplyAction="http://tempuri.org/ICategory/GetCategoriesAsListResponse")]
         System.Threading.Tasks.Task<string[]> GetCategoriesAsListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/IdToName", ReplyAction="http://tempuri.org/ICategory/IdToNameResponse")]
+        string IdToName(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/IdToName", ReplyAction="http://tempuri.org/ICategory/IdToNameResponse")]
+        System.Threading.Tasks.Task<string> IdToNameAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/NameToId", ReplyAction="http://tempuri.org/ICategory/NameToIdResponse")]
+        int NameToId(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/NameToId", ReplyAction="http://tempuri.org/ICategory/NameToIdResponse")]
+        System.Threading.Tasks.Task<int> NameToIdAsync(string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +123,22 @@ namespace ShopFormsClient.CategoryReference {
         
         public System.Threading.Tasks.Task<string[]> GetCategoriesAsListAsync() {
             return base.Channel.GetCategoriesAsListAsync();
+        }
+        
+        public string IdToName(int id) {
+            return base.Channel.IdToName(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> IdToNameAsync(int id) {
+            return base.Channel.IdToNameAsync(id);
+        }
+        
+        public int NameToId(string name) {
+            return base.Channel.NameToId(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> NameToIdAsync(string name) {
+            return base.Channel.NameToIdAsync(name);
         }
     }
 }

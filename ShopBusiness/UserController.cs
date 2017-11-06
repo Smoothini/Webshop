@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace ShopBusiness
 {
-    public class UserController : IController<User>
+    public class UserController
     {
         ShopModel userModel;
         User user;

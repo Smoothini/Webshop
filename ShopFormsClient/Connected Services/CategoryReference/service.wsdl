@@ -37,6 +37,18 @@
   <wsdl:message name="ICategory_GetCategoriesAsList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCategoriesAsListResponse" />
   </wsdl:message>
+  <wsdl:message name="ICategory_IdToName_InputMessage">
+    <wsdl:part name="parameters" element="tns:IdToName" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_IdToName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IdToNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_NameToId_InputMessage">
+    <wsdl:part name="parameters" element="tns:NameToId" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_NameToId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NameToIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICategory">
     <wsdl:operation name="CreateCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/ICategory/CreateCategory" message="tns:ICategory_CreateCategory_InputMessage" />
@@ -57,6 +69,14 @@
     <wsdl:operation name="GetCategoriesAsList">
       <wsdl:input wsaw:Action="http://tempuri.org/ICategory/GetCategoriesAsList" message="tns:ICategory_GetCategoriesAsList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICategory/GetCategoriesAsListResponse" message="tns:ICategory_GetCategoriesAsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IdToName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/IdToName" message="tns:ICategory_IdToName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/IdToNameResponse" message="tns:ICategory_IdToName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NameToId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/NameToId" message="tns:ICategory_NameToId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/NameToIdResponse" message="tns:ICategory_NameToId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICategory" type="tns:ICategory">
@@ -99,6 +119,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetCategoriesAsList">
       <soap:operation soapAction="http://tempuri.org/ICategory/GetCategoriesAsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdToName">
+      <soap:operation soapAction="http://tempuri.org/ICategory/IdToName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NameToId">
+      <soap:operation soapAction="http://tempuri.org/ICategory/NameToId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

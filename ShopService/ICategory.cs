@@ -24,5 +24,11 @@ namespace ShopService
 
         [OperationContract]
         List<string> GetCategoriesAsList();
+
+        [OperationContract]
+        string IdToName(int id);
+
+        [OperationContract]
+        int NameToId(string name);
     }
 }

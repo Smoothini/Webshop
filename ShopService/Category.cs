@@ -40,5 +40,15 @@ namespace ShopService
         {
             return categoryController.GetCategoriesAsList();
         }
+
+        public string IdToName(int id)
+        {
+            return categoryController.IdToName(id);
+        }
+
+        public int NameToId(string name)
+        {
+            return categoryController.NameToId(name);
+        }
     }
 }
