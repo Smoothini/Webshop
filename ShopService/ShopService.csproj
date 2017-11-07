@@ -67,9 +67,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShopBusiness\ShopBusiness.csproj">
+    <ProjectReference Include="..\ShopBusiness\ShopController.csproj">
       <Project>{e8ae30e6-e896-4c35-b9d8-295b10d74757}</Project>
-      <Name>ShopBusiness</Name>
+      <Name>ShopController</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
