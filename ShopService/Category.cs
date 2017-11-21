@@ -26,9 +26,9 @@ namespace ShopService
             //To be made in china
             throw new NotImplementedException();
         }
-        public bool UpdateCategory(string oldName, string newName)
+        public bool UpdateCategory(string oldName, string newName, int stamp)
         {
-            return categoryController.Update(oldName, newName);
+            return categoryController.Update(oldName, newName, stamp);
         }
 
         public bool DeleteCategory(string name)
@@ -49,6 +49,16 @@ namespace ShopService
         public int NameToId(string name)
         {
             return categoryController.NameToId(name);
+        }
+
+        public int GetTimestamp(string name)
+        {
+            return categoryController.GetStamp(name);
+        }
+
+        public bool CheckTimestamp(string name, int stamp)
+        {
+            return stamp == GetTimestamp(name);
         }
     }
 }

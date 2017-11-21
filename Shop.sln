@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopData", "ShopData\ShopData.csproj", "{41A490D9-2601-45E6-B5A0-B776C644ECC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopModel", "ShopData\ShopModel.csproj", "{41A490D9-2601-45E6-B5A0-B776C644ECC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopController", "ShopBusiness\ShopController.csproj", "{E8AE30E6-E896-4C35-B9D8-295B10D74757}"
 EndProject

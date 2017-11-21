@@ -17,7 +17,7 @@ namespace ShopService
         void ReadCategory(int id);
 
         [OperationContract]
-        bool UpdateCategory(string oldName, string newName);
+        bool UpdateCategory(string oldName, string newName, int stamp);
 
         [OperationContract]
         bool DeleteCategory(string name);
@@ -30,5 +30,12 @@ namespace ShopService
 
         [OperationContract]
         int NameToId(string name);
+
+        [OperationContract]
+        int GetTimestamp(string name);
+
+        [OperationContract]
+        bool CheckTimestamp(string name, int stamp);
     }
+    
 }

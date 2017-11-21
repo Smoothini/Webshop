@@ -49,6 +49,18 @@
   <wsdl:message name="ICategory_NameToId_OutputMessage">
     <wsdl:part name="parameters" element="tns:NameToIdResponse" />
   </wsdl:message>
+  <wsdl:message name="ICategory_GetTimestamp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimestamp" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_GetTimestamp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimestampResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_CheckTimestamp_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTimestamp" />
+  </wsdl:message>
+  <wsdl:message name="ICategory_CheckTimestamp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckTimestampResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICategory">
     <wsdl:operation name="CreateCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/ICategory/CreateCategory" message="tns:ICategory_CreateCategory_InputMessage" />
@@ -77,6 +89,14 @@
     <wsdl:operation name="NameToId">
       <wsdl:input wsaw:Action="http://tempuri.org/ICategory/NameToId" message="tns:ICategory_NameToId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICategory/NameToIdResponse" message="tns:ICategory_NameToId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimestamp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/GetTimestamp" message="tns:ICategory_GetTimestamp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/GetTimestampResponse" message="tns:ICategory_GetTimestamp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTimestamp">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/CheckTimestamp" message="tns:ICategory_CheckTimestamp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/CheckTimestampResponse" message="tns:ICategory_CheckTimestamp_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICategory" type="tns:ICategory">
@@ -137,6 +157,24 @@
     </wsdl:operation>
     <wsdl:operation name="NameToId">
       <soap:operation soapAction="http://tempuri.org/ICategory/NameToId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimestamp">
+      <soap:operation soapAction="http://tempuri.org/ICategory/GetTimestamp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTimestamp">
+      <soap:operation soapAction="http://tempuri.org/ICategory/CheckTimestamp" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

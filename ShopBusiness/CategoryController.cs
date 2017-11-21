@@ -59,7 +59,7 @@ namespace ShopBusiness
             return cats;
         }
 
-        public bool Update(string oldName, string newName)
+        public bool Update(string oldName, string newName, int stamp)
         {
             bool isRenamed = true;
             category = new Category();
@@ -68,8 +68,14 @@ namespace ShopBusiness
             {
                 if (model.Categories.SingleOrDefault(x => x.Name == newName) == null)
                 {
-                    category.Name = newName;
-                    model.SaveChanges();
+                    if (stamp == GetStamp(oldName))
+                    {
+                        category.Name = newName;
+                        category.Timestamp++;
+                        model.SaveChanges();
+                    }
+                    else
+                        isRenamed = false;
                 }
                 else
                     isRenamed = false;
@@ -129,5 +135,14 @@ namespace ShopBusiness
                 return null;
         }
 
+        public int GetStamp(string name)
+        {
+            category = new Category();
+            category = model.Categories.SingleOrDefault(x => x.Name == name);
+            if (category != null)
+                return category.Timestamp;
+            else
+                return -1;
+        }
     }
 }

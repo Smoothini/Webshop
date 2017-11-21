@@ -28,10 +28,10 @@ namespace ShopFormsClient.CategoryReference {
         System.Threading.Tasks.Task ReadCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/UpdateCategory", ReplyAction="http://tempuri.org/ICategory/UpdateCategoryResponse")]
-        bool UpdateCategory(string oldName, string newName);
+        bool UpdateCategory(string oldName, string newName, int stamp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/UpdateCategory", ReplyAction="http://tempuri.org/ICategory/UpdateCategoryResponse")]
-        System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName);
+        System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName, int stamp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/DeleteCategory", ReplyAction="http://tempuri.org/ICategory/DeleteCategoryResponse")]
         bool DeleteCategory(string name);
@@ -56,6 +56,18 @@ namespace ShopFormsClient.CategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/NameToId", ReplyAction="http://tempuri.org/ICategory/NameToIdResponse")]
         System.Threading.Tasks.Task<int> NameToIdAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetTimestamp", ReplyAction="http://tempuri.org/ICategory/GetTimestampResponse")]
+        int GetTimestamp(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetTimestamp", ReplyAction="http://tempuri.org/ICategory/GetTimestampResponse")]
+        System.Threading.Tasks.Task<int> GetTimestampAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/CheckTimestamp", ReplyAction="http://tempuri.org/ICategory/CheckTimestampResponse")]
+        bool CheckTimestamp(string name, int stamp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/CheckTimestamp", ReplyAction="http://tempuri.org/ICategory/CheckTimestampResponse")]
+        System.Threading.Tasks.Task<bool> CheckTimestampAsync(string name, int stamp);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -101,12 +113,12 @@ namespace ShopFormsClient.CategoryReference {
             return base.Channel.ReadCategoryAsync(id);
         }
         
-        public bool UpdateCategory(string oldName, string newName) {
-            return base.Channel.UpdateCategory(oldName, newName);
+        public bool UpdateCategory(string oldName, string newName, int stamp) {
+            return base.Channel.UpdateCategory(oldName, newName, stamp);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName) {
-            return base.Channel.UpdateCategoryAsync(oldName, newName);
+        public System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName, int stamp) {
+            return base.Channel.UpdateCategoryAsync(oldName, newName, stamp);
         }
         
         public bool DeleteCategory(string name) {
@@ -139,6 +151,22 @@ namespace ShopFormsClient.CategoryReference {
         
         public System.Threading.Tasks.Task<int> NameToIdAsync(string name) {
             return base.Channel.NameToIdAsync(name);
+        }
+        
+        public int GetTimestamp(string name) {
+            return base.Channel.GetTimestamp(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetTimestampAsync(string name) {
+            return base.Channel.GetTimestampAsync(name);
+        }
+        
+        public bool CheckTimestamp(string name, int stamp) {
+            return base.Channel.CheckTimestamp(name, stamp);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckTimestampAsync(string name, int stamp) {
+            return base.Channel.CheckTimestampAsync(name, stamp);
         }
     }
 }

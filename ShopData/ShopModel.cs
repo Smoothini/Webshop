@@ -36,10 +36,6 @@ namespace ShopData
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
-                .Property(e => e.Description)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Product>()
                 .Property(e => e.Price)
                 .HasPrecision(18, 0);
 

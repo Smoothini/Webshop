@@ -12,7 +12,7 @@ namespace ShopFormsClient
 {
     public partial class Login : Form
     {
-        UserReference.IUser user;
+        UserReference.UserClient user;
         MainWindow main;
         public Login()
         {
@@ -22,7 +22,8 @@ namespace ShopFormsClient
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            UserReference.UserClient userClient = new UserReference.UserClient();
+            this.Text = userClient.Endpoint.Address.ToString();
         }
 
         public bool isValid(string user, string pass)

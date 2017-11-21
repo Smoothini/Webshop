@@ -13,6 +13,7 @@ namespace ShopFormsClient
     public partial class CategoryWindow : Form
     {
         CategoryReference.ICategory categoryRef;
+        int Timestamp;
         public CategoryWindow()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace ShopFormsClient
         private void CategoryWindow_Load(object sender, EventArgs e)
         {
             refreshButton.PerformClick();
+            Timestamp = -1;
         }
 
         private void createCategory_Click(object sender, EventArgs e)
@@ -37,10 +39,10 @@ namespace ShopFormsClient
         private void renameButton_Click(object sender, EventArgs e)
         {
             createLabel.Visible = true;
-            if (categoryRef.UpdateCategory(categoriesBox.SelectedItem.ToString(), newNameBox.Text.ToString()))
+            if (categoryRef.UpdateCategory(categoriesBox.SelectedItem.ToString(), newNameBox.Text.ToString(), Timestamp))
                 createLabel.Text = "Succesfully renamed";
             else
-                createLabel.Text = "Already exists";
+                createLabel.Text = "Error renaming category";
             newNameBox.Clear();
             refreshButton.PerformClick();
         }
@@ -58,7 +60,9 @@ namespace ShopFormsClient
             List<string> items = categoryRef.GetCategoriesAsList().ToList<string>();
             foreach(string cat in items)
             {
+                
                 categoriesBox.Items.Add(cat);
+                
             }
         }
 
@@ -67,7 +71,10 @@ namespace ShopFormsClient
             if (categoriesBox.SelectedItem == null)
                 newNameBox.Clear();
             else
+            {
                 newNameBox.Text = categoriesBox.SelectedItem.ToString();
+                Timestamp = categoryRef.GetTimestamp(categoriesBox.SelectedItem.ToString());
+            }
         }
     }
 }

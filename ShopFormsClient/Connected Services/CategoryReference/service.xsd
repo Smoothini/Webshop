@@ -32,6 +32,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="oldName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="newName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stamp" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -93,6 +94,35 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="NameToIdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimestamp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimestampResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTimestampResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTimestamp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stamp" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckTimestampResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckTimestampResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
