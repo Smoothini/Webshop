@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryController.cs" />
+    <Compile Include="IController.cs" />
     <Compile Include="ProductController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserController.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using ShopModel;
 
 namespace ShopService
 {
@@ -11,31 +12,18 @@ namespace ShopService
     public interface ICategory
     {
         [OperationContract]
-        bool CreateCategory(string name);
+        bool Create(ShopModel.Category t);
 
         [OperationContract]
-        void ReadCategory(int id);
+        ShopModel.Category Read(int id);
 
         [OperationContract]
-        bool UpdateCategory(string oldName, string newName, int stamp);
+        List<ShopModel.Category> ReadAll();
 
         [OperationContract]
-        bool DeleteCategory(string name);
+        bool Update(ShopModel.Category t);
 
         [OperationContract]
-        List<string> GetCategoriesAsList();
-
-        [OperationContract]
-        string IdToName(int id);
-
-        [OperationContract]
-        int NameToId(string name);
-
-        [OperationContract]
-        int GetTimestamp(string name);
-
-        [OperationContract]
-        bool CheckTimestamp(string name, int stamp);
-    }
-    
+        bool Delete(ShopModel.Category t);
+    }    
 }

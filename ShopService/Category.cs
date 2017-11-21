@@ -5,60 +5,39 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using ShopBusiness;
+using ShopModel;
 
 namespace ShopService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Category" in both code and config file together.
     public class Category : ICategory
     {
-        CategoryController categoryController;
+        CategoryController controller;
         public Category()
         {
-            categoryController = new CategoryController();
+            controller = new CategoryController();
         }
 
-        public bool CreateCategory(string name)
+        public bool Create(ShopModel.Category t)
         {
-            return categoryController.Create(name);
+            return controller.Create(t);
         }
-        public void ReadCategory(int id)
+        public ShopModel.Category Read(int id)
         {
-            //To be made in china
-            throw new NotImplementedException();
-        }
-        public bool UpdateCategory(string oldName, string newName, int stamp)
-        {
-            return categoryController.Update(oldName, newName, stamp);
+            return controller.Read(id);
         }
 
-        public bool DeleteCategory(string name)
+        public List<ShopModel.Category> ReadAll()
         {
-            return categoryController.DeleteByName(name);
+            return controller.ReadAll();
+        }
+        public bool Update(ShopModel.Category t)
+        {
+            return controller.Update(t);
         }
 
-        public List<string> GetCategoriesAsList()
+        public bool Delete(ShopModel.Category t)
         {
-            return categoryController.GetCategoriesAsList();
-        }
-
-        public string IdToName(int id)
-        {
-            return categoryController.IdToName(id);
-        }
-
-        public int NameToId(string name)
-        {
-            return categoryController.NameToId(name);
-        }
-
-        public int GetTimestamp(string name)
-        {
-            return categoryController.GetStamp(name);
-        }
-
-        public bool CheckTimestamp(string name, int stamp)
-        {
-            return stamp == GetTimestamp(name);
+            return controller.Delete(t);
         }
     }
 }

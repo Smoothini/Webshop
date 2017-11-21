@@ -3,142 +3,81 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShopData;
+using ShopModel;
 
 namespace ShopBusiness
 {
-    public class CategoryController
+    public class CategoryController : IController<Category>
     {
-        ShopModel model;
+        ShopModel.ShopModel model;
         Category category;
         List<Category> categories;
 
         public CategoryController()
         {
-            model = new ShopModel();
+            model = new ShopModel.ShopModel();
+            category = new Category();
+            categories = new List<Category>();
         }
 
-        public bool Create(string name)
+        public bool Create(Category t)
         {
-            bool isCreated = true;
-            category = new Category();
-            category = model.Categories.SingleOrDefault(x => x.Name == name);
-            if (category == null)
+            if (t != null)
             {
-                category = new Category();
-                category.Name = name;
-                model.Categories.Add(category);
+                model.Categories.Add(t);
                 model.SaveChanges();
+                return true;
             }
             else
-                isCreated = false;
-            return isCreated;
+                return false;
         }
 
         public Category Read(int id)
         {
-            category = new Category();
-            category = model.Categories.SingleOrDefault(x => x.Category_Id == id);
-            return category;
+            return model.Categories.SingleOrDefault(x => x.Category_Id == id);
         }
 
         public List<Category> ReadAll()
         {
-            categories = new List<Category>();
-            categories = model.Categories.ToList();
-            return categories;
+            return model.Categories.ToList<Category>();
         }
-
-        public List<string> GetCategoriesAsList()
+        public bool Update(Category t)
         {
-            List<string> cats = new List<string>();
-            categories = new List<Category>();
-            categories = model.Categories.ToList();
-            foreach (Category category in categories)
-                cats.Add(category.Name.ToString());
-            return cats;
-        }
-
-        public bool Update(string oldName, string newName, int stamp)
-        {
-            bool isRenamed = true;
-            category = new Category();
-            category = model.Categories.SingleOrDefault(x => x.Name == oldName);
-            if (category != null)
+            if (t != null)
             {
-                if (model.Categories.SingleOrDefault(x => x.Name == newName) == null)
+                if (t.Timestamp == GetTimestamp(t.Category_Id))
                 {
-                    if (stamp == GetStamp(oldName))
-                    {
-                        category.Name = newName;
-                        category.Timestamp++;
-                        model.SaveChanges();
-                    }
-                    else
-                        isRenamed = false;
+                    t.Timestamp++;
+                    model.SaveChanges();
+                    return true;
                 }
                 else
-                    isRenamed = false;
+                    return false;
             }
             else
-                isRenamed = false;
-            return isRenamed;
+                return false;
         }
 
-        public bool Delete(int id)
+        public bool Delete(Category t)
         {
-            bool isDeleted = true;
-            category = new Category();
-            category = model.Categories.SingleOrDefault(x => x.Category_Id == id);
-            if (category != null)
+            if (t != null)
             {
-                model.Categories.Remove(category);
-                model.SaveChanges();
+                if (t.Timestamp == GetTimestamp(t.Category_Id))
+                {
+                    model.Categories.Remove(t);
+                    model.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
             }
             else
-                isDeleted = false;
-            return isDeleted;
+                return false;
         }
 
-        public bool DeleteByName(string name)
+        public int GetTimestamp(int id)
         {
-            bool isDeleted = true;
-            category = new Category();
-            category = model.Categories.SingleOrDefault(x => x.Name == name);
-            if (category != null)
-            {
-                model.Categories.Remove(category);
-                model.SaveChanges();
-            }
-            else
-                isDeleted = false;
-            return isDeleted;
-        }
-
-        public int NameToId(string name)
-        {
-            category = new Category();
-            category = model.Categories.SingleOrDefault(x => x.Name == name);
-            if (category != null)
-                return category.Category_Id;
-            else
-                return -1;
-        }
-
-        public string IdToName(int id)
-        {
-            category = new Category();
             category = model.Categories.SingleOrDefault(x => x.Category_Id == id);
-            if (category != null)
-                return category.Name;
-            else
-                return null;
-        }
-
-        public int GetStamp(string name)
-        {
-            category = new Category();
-            category = model.Categories.SingleOrDefault(x => x.Name == name);
             if (category != null)
                 return category.Timestamp;
             else

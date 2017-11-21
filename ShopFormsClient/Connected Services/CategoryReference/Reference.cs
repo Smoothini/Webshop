@@ -15,59 +15,35 @@ namespace ShopFormsClient.CategoryReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CategoryReference.ICategory")]
     public interface ICategory {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/CreateCategory", ReplyAction="http://tempuri.org/ICategory/CreateCategoryResponse")]
-        bool CreateCategory(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Create", ReplyAction="http://tempuri.org/ICategory/CreateResponse")]
+        bool Create(ShopModel.Category t);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/CreateCategory", ReplyAction="http://tempuri.org/ICategory/CreateCategoryResponse")]
-        System.Threading.Tasks.Task<bool> CreateCategoryAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Create", ReplyAction="http://tempuri.org/ICategory/CreateResponse")]
+        System.Threading.Tasks.Task<bool> CreateAsync(ShopModel.Category t);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/ReadCategory", ReplyAction="http://tempuri.org/ICategory/ReadCategoryResponse")]
-        void ReadCategory(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Read", ReplyAction="http://tempuri.org/ICategory/ReadResponse")]
+        ShopModel.Category Read(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/ReadCategory", ReplyAction="http://tempuri.org/ICategory/ReadCategoryResponse")]
-        System.Threading.Tasks.Task ReadCategoryAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Read", ReplyAction="http://tempuri.org/ICategory/ReadResponse")]
+        System.Threading.Tasks.Task<ShopModel.Category> ReadAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/UpdateCategory", ReplyAction="http://tempuri.org/ICategory/UpdateCategoryResponse")]
-        bool UpdateCategory(string oldName, string newName, int stamp);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/ReadAll", ReplyAction="http://tempuri.org/ICategory/ReadAllResponse")]
+        ShopModel.Category[] ReadAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/UpdateCategory", ReplyAction="http://tempuri.org/ICategory/UpdateCategoryResponse")]
-        System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName, int stamp);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/ReadAll", ReplyAction="http://tempuri.org/ICategory/ReadAllResponse")]
+        System.Threading.Tasks.Task<ShopModel.Category[]> ReadAllAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/DeleteCategory", ReplyAction="http://tempuri.org/ICategory/DeleteCategoryResponse")]
-        bool DeleteCategory(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Update", ReplyAction="http://tempuri.org/ICategory/UpdateResponse")]
+        bool Update(ShopModel.Category t);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/DeleteCategory", ReplyAction="http://tempuri.org/ICategory/DeleteCategoryResponse")]
-        System.Threading.Tasks.Task<bool> DeleteCategoryAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Update", ReplyAction="http://tempuri.org/ICategory/UpdateResponse")]
+        System.Threading.Tasks.Task<bool> UpdateAsync(ShopModel.Category t);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetCategoriesAsList", ReplyAction="http://tempuri.org/ICategory/GetCategoriesAsListResponse")]
-        string[] GetCategoriesAsList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Delete", ReplyAction="http://tempuri.org/ICategory/DeleteResponse")]
+        bool Delete(ShopModel.Category t);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetCategoriesAsList", ReplyAction="http://tempuri.org/ICategory/GetCategoriesAsListResponse")]
-        System.Threading.Tasks.Task<string[]> GetCategoriesAsListAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/IdToName", ReplyAction="http://tempuri.org/ICategory/IdToNameResponse")]
-        string IdToName(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/IdToName", ReplyAction="http://tempuri.org/ICategory/IdToNameResponse")]
-        System.Threading.Tasks.Task<string> IdToNameAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/NameToId", ReplyAction="http://tempuri.org/ICategory/NameToIdResponse")]
-        int NameToId(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/NameToId", ReplyAction="http://tempuri.org/ICategory/NameToIdResponse")]
-        System.Threading.Tasks.Task<int> NameToIdAsync(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetTimestamp", ReplyAction="http://tempuri.org/ICategory/GetTimestampResponse")]
-        int GetTimestamp(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/GetTimestamp", ReplyAction="http://tempuri.org/ICategory/GetTimestampResponse")]
-        System.Threading.Tasks.Task<int> GetTimestampAsync(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/CheckTimestamp", ReplyAction="http://tempuri.org/ICategory/CheckTimestampResponse")]
-        bool CheckTimestamp(string name, int stamp);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/CheckTimestamp", ReplyAction="http://tempuri.org/ICategory/CheckTimestampResponse")]
-        System.Threading.Tasks.Task<bool> CheckTimestampAsync(string name, int stamp);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Delete", ReplyAction="http://tempuri.org/ICategory/DeleteResponse")]
+        System.Threading.Tasks.Task<bool> DeleteAsync(ShopModel.Category t);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,76 +73,44 @@ namespace ShopFormsClient.CategoryReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool CreateCategory(string name) {
-            return base.Channel.CreateCategory(name);
+        public bool Create(ShopModel.Category t) {
+            return base.Channel.Create(t);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateCategoryAsync(string name) {
-            return base.Channel.CreateCategoryAsync(name);
+        public System.Threading.Tasks.Task<bool> CreateAsync(ShopModel.Category t) {
+            return base.Channel.CreateAsync(t);
         }
         
-        public void ReadCategory(int id) {
-            base.Channel.ReadCategory(id);
+        public ShopModel.Category Read(int id) {
+            return base.Channel.Read(id);
         }
         
-        public System.Threading.Tasks.Task ReadCategoryAsync(int id) {
-            return base.Channel.ReadCategoryAsync(id);
+        public System.Threading.Tasks.Task<ShopModel.Category> ReadAsync(int id) {
+            return base.Channel.ReadAsync(id);
         }
         
-        public bool UpdateCategory(string oldName, string newName, int stamp) {
-            return base.Channel.UpdateCategory(oldName, newName, stamp);
+        public ShopModel.Category[] ReadAll() {
+            return base.Channel.ReadAll();
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateCategoryAsync(string oldName, string newName, int stamp) {
-            return base.Channel.UpdateCategoryAsync(oldName, newName, stamp);
+        public System.Threading.Tasks.Task<ShopModel.Category[]> ReadAllAsync() {
+            return base.Channel.ReadAllAsync();
         }
         
-        public bool DeleteCategory(string name) {
-            return base.Channel.DeleteCategory(name);
+        public bool Update(ShopModel.Category t) {
+            return base.Channel.Update(t);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteCategoryAsync(string name) {
-            return base.Channel.DeleteCategoryAsync(name);
+        public System.Threading.Tasks.Task<bool> UpdateAsync(ShopModel.Category t) {
+            return base.Channel.UpdateAsync(t);
         }
         
-        public string[] GetCategoriesAsList() {
-            return base.Channel.GetCategoriesAsList();
+        public bool Delete(ShopModel.Category t) {
+            return base.Channel.Delete(t);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetCategoriesAsListAsync() {
-            return base.Channel.GetCategoriesAsListAsync();
-        }
-        
-        public string IdToName(int id) {
-            return base.Channel.IdToName(id);
-        }
-        
-        public System.Threading.Tasks.Task<string> IdToNameAsync(int id) {
-            return base.Channel.IdToNameAsync(id);
-        }
-        
-        public int NameToId(string name) {
-            return base.Channel.NameToId(name);
-        }
-        
-        public System.Threading.Tasks.Task<int> NameToIdAsync(string name) {
-            return base.Channel.NameToIdAsync(name);
-        }
-        
-        public int GetTimestamp(string name) {
-            return base.Channel.GetTimestamp(name);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetTimestampAsync(string name) {
-            return base.Channel.GetTimestampAsync(name);
-        }
-        
-        public bool CheckTimestamp(string name, int stamp) {
-            return base.Channel.CheckTimestamp(name, stamp);
-        }
-        
-        public System.Threading.Tasks.Task<bool> CheckTimestampAsync(string name, int stamp) {
-            return base.Channel.CheckTimestampAsync(name, stamp);
+        public System.Threading.Tasks.Task<bool> DeleteAsync(ShopModel.Category t) {
+            return base.Channel.DeleteAsync(t);
         }
     }
 }

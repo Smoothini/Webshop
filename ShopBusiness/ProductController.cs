@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShopData;
+using ShopModel;
 
 namespace ShopBusiness
 {
     public class ProductController
     {
-        ShopModel model;
+        ShopModel.ShopModel model;
         Product product;
         List<Product> products;
         public ProductController()
         {
-            model = new ShopModel();
+            model = new ShopModel.ShopModel();
         }
 
         public bool Create(string name, string description, int category, int stock, decimal price)

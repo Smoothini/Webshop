@@ -4,105 +4,65 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ShopModel" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ICategory_CreateCategory_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCategory" />
+  <wsdl:message name="ICategory_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
   </wsdl:message>
-  <wsdl:message name="ICategory_CreateCategory_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCategoryResponse" />
+  <wsdl:message name="ICategory_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
   </wsdl:message>
-  <wsdl:message name="ICategory_ReadCategory_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReadCategory" />
+  <wsdl:message name="ICategory_Read_InputMessage">
+    <wsdl:part name="parameters" element="tns:Read" />
   </wsdl:message>
-  <wsdl:message name="ICategory_ReadCategory_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReadCategoryResponse" />
+  <wsdl:message name="ICategory_Read_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadResponse" />
   </wsdl:message>
-  <wsdl:message name="ICategory_UpdateCategory_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCategory" />
+  <wsdl:message name="ICategory_ReadAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAll" />
   </wsdl:message>
-  <wsdl:message name="ICategory_UpdateCategory_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCategoryResponse" />
+  <wsdl:message name="ICategory_ReadAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAllResponse" />
   </wsdl:message>
-  <wsdl:message name="ICategory_DeleteCategory_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  <wsdl:message name="ICategory_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
   </wsdl:message>
-  <wsdl:message name="ICategory_DeleteCategory_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  <wsdl:message name="ICategory_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
   </wsdl:message>
-  <wsdl:message name="ICategory_GetCategoriesAsList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCategoriesAsList" />
+  <wsdl:message name="ICategory_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
   </wsdl:message>
-  <wsdl:message name="ICategory_GetCategoriesAsList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCategoriesAsListResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_IdToName_InputMessage">
-    <wsdl:part name="parameters" element="tns:IdToName" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_IdToName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IdToNameResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_NameToId_InputMessage">
-    <wsdl:part name="parameters" element="tns:NameToId" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_NameToId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:NameToIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_GetTimestamp_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTimestamp" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_GetTimestamp_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTimestampResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_CheckTimestamp_InputMessage">
-    <wsdl:part name="parameters" element="tns:CheckTimestamp" />
-  </wsdl:message>
-  <wsdl:message name="ICategory_CheckTimestamp_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CheckTimestampResponse" />
+  <wsdl:message name="ICategory_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
   </wsdl:message>
   <wsdl:portType name="ICategory">
-    <wsdl:operation name="CreateCategory">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/CreateCategory" message="tns:ICategory_CreateCategory_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/CreateCategoryResponse" message="tns:ICategory_CreateCategory_OutputMessage" />
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Create" message="tns:ICategory_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/CreateResponse" message="tns:ICategory_Create_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReadCategory">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/ReadCategory" message="tns:ICategory_ReadCategory_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/ReadCategoryResponse" message="tns:ICategory_ReadCategory_OutputMessage" />
+    <wsdl:operation name="Read">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Read" message="tns:ICategory_Read_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/ReadResponse" message="tns:ICategory_Read_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateCategory">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/UpdateCategory" message="tns:ICategory_UpdateCategory_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/UpdateCategoryResponse" message="tns:ICategory_UpdateCategory_OutputMessage" />
+    <wsdl:operation name="ReadAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/ReadAll" message="tns:ICategory_ReadAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/ReadAllResponse" message="tns:ICategory_ReadAll_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteCategory">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/DeleteCategory" message="tns:ICategory_DeleteCategory_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/DeleteCategoryResponse" message="tns:ICategory_DeleteCategory_OutputMessage" />
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Update" message="tns:ICategory_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/UpdateResponse" message="tns:ICategory_Update_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetCategoriesAsList">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/GetCategoriesAsList" message="tns:ICategory_GetCategoriesAsList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/GetCategoriesAsListResponse" message="tns:ICategory_GetCategoriesAsList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IdToName">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/IdToName" message="tns:ICategory_IdToName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/IdToNameResponse" message="tns:ICategory_IdToName_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="NameToId">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/NameToId" message="tns:ICategory_NameToId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/NameToIdResponse" message="tns:ICategory_NameToId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTimestamp">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/GetTimestamp" message="tns:ICategory_GetTimestamp_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/GetTimestampResponse" message="tns:ICategory_GetTimestamp_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckTimestamp">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/CheckTimestamp" message="tns:ICategory_CheckTimestamp_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/CheckTimestampResponse" message="tns:ICategory_CheckTimestamp_OutputMessage" />
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICategory/Delete" message="tns:ICategory_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICategory/DeleteResponse" message="tns:ICategory_Delete_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICategory" type="tns:ICategory">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="CreateCategory">
-      <soap:operation soapAction="http://tempuri.org/ICategory/CreateCategory" style="document" />
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/ICategory/Create" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -110,8 +70,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReadCategory">
-      <soap:operation soapAction="http://tempuri.org/ICategory/ReadCategory" style="document" />
+    <wsdl:operation name="Read">
+      <soap:operation soapAction="http://tempuri.org/ICategory/Read" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -119,8 +79,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateCategory">
-      <soap:operation soapAction="http://tempuri.org/ICategory/UpdateCategory" style="document" />
+    <wsdl:operation name="ReadAll">
+      <soap:operation soapAction="http://tempuri.org/ICategory/ReadAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -128,8 +88,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteCategory">
-      <soap:operation soapAction="http://tempuri.org/ICategory/DeleteCategory" style="document" />
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/ICategory/Update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -137,44 +97,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCategoriesAsList">
-      <soap:operation soapAction="http://tempuri.org/ICategory/GetCategoriesAsList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IdToName">
-      <soap:operation soapAction="http://tempuri.org/ICategory/IdToName" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="NameToId">
-      <soap:operation soapAction="http://tempuri.org/ICategory/NameToId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTimestamp">
-      <soap:operation soapAction="http://tempuri.org/ICategory/GetTimestamp" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckTimestamp">
-      <soap:operation soapAction="http://tempuri.org/ICategory/CheckTimestamp" style="document" />
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/ICategory/Delete" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

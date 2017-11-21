@@ -21,23 +21,23 @@ namespace ShopFormsClient
 
         void prepareComboBoxes()
         {
-            List<string> cats = new List<string>(categoryRef.GetCategoriesAsList());
+            /*List<string> cats = new List<string>(categoryRef.GetCategoriesAsList());
             foreach (string cat in cats)
             {
                 categoryComboBox.Items.Add(cat);
                 newCategoryComboBox.Items.Add(cat);
-            }
+            }*/
         }
-
+        /*
         string IdToName(int id)
         {
-            return categoryRef.IdToName(id);
+            //return categoryRef.IdToName(id);
         }
 
         int NameToId(string name)
         {
-            return categoryRef.NameToId(name);
-        }
+            //return categoryRef.NameToId(name);
+        }*/
 
         private void ProductWindow_Load(object sender, EventArgs e)
         {
@@ -54,20 +54,20 @@ namespace ShopFormsClient
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            if (productRef.Create(nameBox.Text, descBox.Text, NameToId(categoryComboBox.SelectedItem.ToString()), int.Parse(stockBox.Text), decimal.Parse(priceBox.Text)))
+            /*if (productRef.Create(nameBox.Text, descBox.Text, NameToId(categoryComboBox.SelectedItem.ToString()), int.Parse(stockBox.Text), decimal.Parse(priceBox.Text)))
                 createMessage.Text = "Product succesfully created";
             else
                 createMessage.Text = "Error, please check input details";
-            refreshButton.PerformClick();
+            refreshButton.PerformClick();*/
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            if (productRef.Update(productsBox.SelectedItem.ToString(), newNameBox.Text, newDescBox.Text, NameToId(newCategoryComboBox.SelectedItem.ToString()), int.Parse(newStockBox.Text), decimal.Parse(newPriceBox.Text)))
+            /*if (productRef.Update(productsBox.SelectedItem.ToString(), newNameBox.Text, newDescBox.Text, NameToId(newCategoryComboBox.SelectedItem.ToString()), int.Parse(newStockBox.Text), decimal.Parse(newPriceBox.Text)))
                 messageExtra.Text = "Product succesfully updated!";
             else
                 messageExtra.Text = "Error in updating product";
-            refreshButton.PerformClick();
+            refreshButton.PerformClick();*/
         }
 
         private void addStockButton_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace ShopFormsClient
 
         private void productsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (productsBox.SelectedItem != null)
+            /*if (productsBox.SelectedItem != null)
             {
                 string[] details = productRef.GetProductDetails(productsBox.SelectedItem.ToString());
                 newNameBox.Text = details[0];
@@ -98,7 +98,7 @@ namespace ShopFormsClient
                 newCategoryComboBox.SelectedItem = IdToName(int.Parse(details[2]));
                 newStockBox.Text = details[3];
                 newPriceBox.Text = details[4];
-            }
+            }*/
         }
     }
 }

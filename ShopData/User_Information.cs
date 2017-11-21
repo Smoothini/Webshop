@@ -1,4 +1,4 @@
-namespace ShopData
+namespace ShopModel
 {
     using System;
     using System.Collections.Generic;

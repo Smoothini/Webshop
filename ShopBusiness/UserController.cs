@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShopData;
+using ShopModel;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 
@@ -11,13 +11,13 @@ namespace ShopBusiness
 {
     public class UserController
     {
-        ShopModel userModel;
+        ShopModel.ShopModel userModel;
         User user;
         List<User> users;
         //Constructor, initializes the EF model
         public UserController()
         {
-            userModel = new ShopModel();
+            userModel = new ShopModel.ShopModel();
         }
 
 
