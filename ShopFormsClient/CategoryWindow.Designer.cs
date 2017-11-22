@@ -52,7 +52,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.newCategory);
             this.groupBox1.Controls.Add(this.createCategory);
-            this.groupBox1.Location = new System.Drawing.Point(182, 11);
+            this.groupBox1.Location = new System.Drawing.Point(530, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(218, 160);
             this.groupBox1.TabIndex = 0;
@@ -120,7 +120,7 @@
             this.categoriesBox.FormattingEnabled = true;
             this.categoriesBox.Location = new System.Drawing.Point(6, 19);
             this.categoriesBox.Name = "categoriesBox";
-            this.categoriesBox.Size = new System.Drawing.Size(152, 134);
+            this.categoriesBox.Size = new System.Drawing.Size(396, 134);
             this.categoriesBox.TabIndex = 2;
             this.categoriesBox.SelectedIndexChanged += new System.EventHandler(this.categoriesBox_SelectedIndexChanged);
             // 
@@ -155,7 +155,7 @@
             this.groupBox2.Controls.Add(this.categoriesBox);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(164, 159);
+            this.groupBox2.Size = new System.Drawing.Size(438, 159);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Categories";
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 271);
+            this.ClientSize = new System.Drawing.Size(760, 271);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

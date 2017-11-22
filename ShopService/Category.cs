@@ -4,8 +4,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using ShopBusiness;
 using ShopModel;
+using ShopController;
+using ShopService.Transporter;
 
 namespace ShopService
 {
@@ -17,27 +18,54 @@ namespace ShopService
             controller = new CategoryController();
         }
 
-        public bool Create(ShopModel.Category t)
+        public TCategory ModelToTransporter(ShopModel.Category t)
         {
-            return controller.Create(t);
-        }
-        public ShopModel.Category Read(int id)
-        {
-            return controller.Read(id);
-        }
-
-        public List<ShopModel.Category> ReadAll()
-        {
-            return controller.ReadAll();
-        }
-        public bool Update(ShopModel.Category t)
-        {
-            return controller.Update(t);
+            TCategory category = new TCategory
+            {
+                id = t.Category_Id,
+                name = t.Name,
+                timestamp = t.Timestamp
+            };
+            return category;
         }
 
-        public bool Delete(ShopModel.Category t)
+        public ShopModel.Category TransporterToModel(TCategory t)
         {
-            return controller.Delete(t);
+            ShopModel.Category category = new ShopModel.Category
+            {
+                Category_Id = t.id,
+                Name = t.name,
+                Timestamp = t.timestamp
+            };
+            return category;
+        }
+
+        public bool Create(TCategory t)
+        {
+            return controller.Create(TransporterToModel(t));
+        }
+        public TCategory Read(int id)
+        {
+            return ModelToTransporter(controller.Read(id));
+        }
+
+        public List<TCategory> ReadAll()
+        {
+            List<TCategory> tlist = new List<TCategory>();
+            List<ShopModel.Category> list = new List<ShopModel.Category>();
+            list = controller.ReadAll();
+            foreach (ShopModel.Category cat in list)
+                tlist.Add(ModelToTransporter(cat));
+            return tlist;
+        }
+        public bool Update(TCategory t)
+        {
+            return controller.Update(TransporterToModel(t));
+        }
+
+        public bool Delete(TCategory t)
+        {
+            return controller.Delete(TransporterToModel(t));
         }
     }
 }

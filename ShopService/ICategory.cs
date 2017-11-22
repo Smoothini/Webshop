@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using ShopModel;
+using ShopService.Transporter;
 
 namespace ShopService
 {
@@ -12,18 +12,18 @@ namespace ShopService
     public interface ICategory
     {
         [OperationContract]
-        bool Create(ShopModel.Category t);
+        bool Create(TCategory t);
 
         [OperationContract]
-        ShopModel.Category Read(int id);
+        TCategory Read(int id);
 
         [OperationContract]
-        List<ShopModel.Category> ReadAll();
+        List<TCategory> ReadAll();
 
         [OperationContract]
-        bool Update(ShopModel.Category t);
+        bool Update(TCategory t);
 
         [OperationContract]
-        bool Delete(ShopModel.Category t);
+        bool Delete(TCategory t);
     }    
 }

@@ -7,7 +7,7 @@ using ShopModel;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 
-namespace ShopBusiness
+namespace ShopController
 {
     public class UserController
     {

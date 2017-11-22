@@ -16,34 +16,34 @@ namespace ShopFormsClient.CategoryReference {
     public interface ICategory {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Create", ReplyAction="http://tempuri.org/ICategory/CreateResponse")]
-        bool Create(ShopModel.Category t);
+        bool Create(ShopService.Transporter.TCategory t);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Create", ReplyAction="http://tempuri.org/ICategory/CreateResponse")]
-        System.Threading.Tasks.Task<bool> CreateAsync(ShopModel.Category t);
+        System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TCategory t);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Read", ReplyAction="http://tempuri.org/ICategory/ReadResponse")]
-        ShopModel.Category Read(int id);
+        ShopService.Transporter.TCategory Read(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Read", ReplyAction="http://tempuri.org/ICategory/ReadResponse")]
-        System.Threading.Tasks.Task<ShopModel.Category> ReadAsync(int id);
+        System.Threading.Tasks.Task<ShopService.Transporter.TCategory> ReadAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/ReadAll", ReplyAction="http://tempuri.org/ICategory/ReadAllResponse")]
-        ShopModel.Category[] ReadAll();
+        ShopService.Transporter.TCategory[] ReadAll();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/ReadAll", ReplyAction="http://tempuri.org/ICategory/ReadAllResponse")]
-        System.Threading.Tasks.Task<ShopModel.Category[]> ReadAllAsync();
+        System.Threading.Tasks.Task<ShopService.Transporter.TCategory[]> ReadAllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Update", ReplyAction="http://tempuri.org/ICategory/UpdateResponse")]
-        bool Update(ShopModel.Category t);
+        bool Update(ShopService.Transporter.TCategory t);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Update", ReplyAction="http://tempuri.org/ICategory/UpdateResponse")]
-        System.Threading.Tasks.Task<bool> UpdateAsync(ShopModel.Category t);
+        System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TCategory t);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Delete", ReplyAction="http://tempuri.org/ICategory/DeleteResponse")]
-        bool Delete(ShopModel.Category t);
+        bool Delete(ShopService.Transporter.TCategory t);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategory/Delete", ReplyAction="http://tempuri.org/ICategory/DeleteResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAsync(ShopModel.Category t);
+        System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TCategory t);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -73,43 +73,43 @@ namespace ShopFormsClient.CategoryReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool Create(ShopModel.Category t) {
+        public bool Create(ShopService.Transporter.TCategory t) {
             return base.Channel.Create(t);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateAsync(ShopModel.Category t) {
+        public System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TCategory t) {
             return base.Channel.CreateAsync(t);
         }
         
-        public ShopModel.Category Read(int id) {
+        public ShopService.Transporter.TCategory Read(int id) {
             return base.Channel.Read(id);
         }
         
-        public System.Threading.Tasks.Task<ShopModel.Category> ReadAsync(int id) {
+        public System.Threading.Tasks.Task<ShopService.Transporter.TCategory> ReadAsync(int id) {
             return base.Channel.ReadAsync(id);
         }
         
-        public ShopModel.Category[] ReadAll() {
+        public ShopService.Transporter.TCategory[] ReadAll() {
             return base.Channel.ReadAll();
         }
         
-        public System.Threading.Tasks.Task<ShopModel.Category[]> ReadAllAsync() {
+        public System.Threading.Tasks.Task<ShopService.Transporter.TCategory[]> ReadAllAsync() {
             return base.Channel.ReadAllAsync();
         }
         
-        public bool Update(ShopModel.Category t) {
+        public bool Update(ShopService.Transporter.TCategory t) {
             return base.Channel.Update(t);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateAsync(ShopModel.Category t) {
+        public System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TCategory t) {
             return base.Channel.UpdateAsync(t);
         }
         
-        public bool Delete(ShopModel.Category t) {
+        public bool Delete(ShopService.Transporter.TCategory t) {
             return base.Channel.Delete(t);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteAsync(ShopModel.Category t) {
+        public System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TCategory t) {
             return base.Channel.DeleteAsync(t);
         }
     }

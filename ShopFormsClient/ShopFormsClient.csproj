@@ -135,7 +135,7 @@
     <None Include="Connected Services\CategoryReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\CategoryReference\ShopModel.xsd">
+    <None Include="Connected Services\CategoryReference\ShopService.Transporter.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProductReference\Arrays.xsd">
@@ -159,6 +159,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\ShopModel.Category.datasource" />
+    <None Include="Properties\DataSources\ShopService.Transporter.TCategory.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,12 +206,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShopData\ShopModel.csproj">
-      <Project>{41a490d9-2601-45e6-b5a0-b776c644ecc8}</Project>
-      <Name>ShopModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\CategoryReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +216,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShopService\ShopService.csproj">
+      <Project>{33213cdb-06c2-43a8-9c78-e4172b36e61b}</Project>
+      <Name>ShopService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

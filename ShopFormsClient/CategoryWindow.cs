@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ShopModel;
+using ShopService.Transporter;
 
 namespace ShopFormsClient
 {
@@ -26,14 +26,18 @@ namespace ShopFormsClient
         }
 
         private void createCategory_Click(object sender, EventArgs e)
-        {/*
-            createLabel.Visible = true;
-            if (categoryRef.CreateCategory(newCategory.Text))
-                createLabel.Text = "Category successfuly created";
-            else
-                createLabel.Text = "Category already exists";
+        {
+            TCategory t = new TCategory();
+            if (newCategory != null && newCategory.ToString() != "")
+            {
+                t.name = newCategory.Text;
+                if(categoryRef.Create(t))
+                    createLabel.Text = "Category successfuly created";
+                else
+                    createLabel.Text = "Category already exists";
+            }
             newCategory.Clear();
-            refreshButton.PerformClick();*/
+            refreshButton.PerformClick();
         }
         private void renameButton_Click(object sender, EventArgs e)
         {/*
@@ -55,27 +59,19 @@ namespace ShopFormsClient
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
+            categoriesBox.DataSource = null;
             categoriesBox.Items.Clear();
-            //List<Category> cats = categoryRef.ReadAll().ToList<Category>();
-
-            categoriesBox.Items.Add(categoryRef.Read(4).ToString());
-
-            //foreach(Category cat in cats)
-            {
-              //  categoriesBox.Items.Add(cat);
-            }
+            categoriesBox.DataSource = categoryRef.ReadAll();
         }
 
         private void categoriesBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
             if (categoriesBox.SelectedItem == null)
                 newNameBox.Clear();
             else
             {
                 newNameBox.Text = categoriesBox.SelectedItem.ToString();
-                Timestamp = categoryRef.GetTimestamp(categoriesBox.SelectedItem.ToString());
-            }*/
+            }
         }
     }
 }
