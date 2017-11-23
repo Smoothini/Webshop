@@ -28,33 +28,36 @@ namespace ShopFormsClient
         private void createCategory_Click(object sender, EventArgs e)
         {
             TCategory t = new TCategory();
-            if (newCategory != null && newCategory.ToString() != "")
+            if (newCategory.ToString() != "")
             {
                 t.name = newCategory.Text;
                 if(categoryRef.Create(t))
                     createLabel.Text = "Category successfuly created";
                 else
-                    createLabel.Text = "Category already exists";
+                    createLabel.Text = "Error creating category";
             }
             newCategory.Clear();
             refreshButton.PerformClick();
         }
         private void renameButton_Click(object sender, EventArgs e)
-        {/*
-            createLabel.Visible = true;
-            if (categoryRef.UpdateCategory(categoriesBox.SelectedItem.ToString(), newNameBox.Text.ToString(), Timestamp))
+        {
+            TCategory t = (TCategory)categoriesBox.SelectedItem;
+            t.name = newNameBox.Text;
+            if (categoryRef.Update(t))
                 createLabel.Text = "Succesfully renamed";
             else
                 createLabel.Text = "Error renaming category";
             newNameBox.Clear();
-            refreshButton.PerformClick();*/
+            refreshButton.PerformClick();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
-        {/*
-            if (categoryRef.DeleteCategory(categoriesBox.SelectedItem.ToString()))
-                createLabel.Text = "Category succesfully deleted";
-            refreshButton.PerformClick();*/
+        {
+            if (categoryRef.Delete((TCategory)categoriesBox.SelectedItem))
+                createLabel.Text = "Succesfully deleted";
+            else
+                createLabel.Text = "Error deleting";
+            refreshButton.PerformClick();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

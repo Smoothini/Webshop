@@ -27,35 +27,35 @@ namespace ShopFormsClient.UserReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AdminLogin", ReplyAction="http://tempuri.org/IUser/AdminLoginResponse")]
         System.Threading.Tasks.Task<bool> AdminLoginAsync(string name, string pass);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/CreateUser", ReplyAction="http://tempuri.org/IUser/CreateUserResponse")]
-        bool CreateUser(string name, string pass);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Create", ReplyAction="http://tempuri.org/IUser/CreateResponse")]
+        bool Create(ShopService.Transporter.TUser user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/CreateUser", ReplyAction="http://tempuri.org/IUser/CreateUserResponse")]
-        System.Threading.Tasks.Task<bool> CreateUserAsync(string name, string pass);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Create", ReplyAction="http://tempuri.org/IUser/CreateResponse")]
+        System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TUser user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUsersAsList", ReplyAction="http://tempuri.org/IUser/GetUsersAsListResponse")]
-        string[] GetUsersAsList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Read", ReplyAction="http://tempuri.org/IUser/ReadResponse")]
+        ShopService.Transporter.TUser Read(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUsersAsList", ReplyAction="http://tempuri.org/IUser/GetUsersAsListResponse")]
-        System.Threading.Tasks.Task<string[]> GetUsersAsListAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Read", ReplyAction="http://tempuri.org/IUser/ReadResponse")]
+        System.Threading.Tasks.Task<ShopService.Transporter.TUser> ReadAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUserDetails", ReplyAction="http://tempuri.org/IUser/GetUserDetailsResponse")]
-        string[] GetUserDetails(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/ReadAll", ReplyAction="http://tempuri.org/IUser/ReadAllResponse")]
+        ShopService.Transporter.TUser[] ReadAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetUserDetails", ReplyAction="http://tempuri.org/IUser/GetUserDetailsResponse")]
-        System.Threading.Tasks.Task<string[]> GetUserDetailsAsync(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/ReadAll", ReplyAction="http://tempuri.org/IUser/ReadAllResponse")]
+        System.Threading.Tasks.Task<ShopService.Transporter.TUser[]> ReadAllAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/UpdateUser", ReplyAction="http://tempuri.org/IUser/UpdateUserResponse")]
-        bool UpdateUser(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Update", ReplyAction="http://tempuri.org/IUser/UpdateResponse")]
+        bool Update(ShopService.Transporter.TUser user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/UpdateUser", ReplyAction="http://tempuri.org/IUser/UpdateUserResponse")]
-        System.Threading.Tasks.Task<bool> UpdateUserAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Update", ReplyAction="http://tempuri.org/IUser/UpdateResponse")]
+        System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TUser user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/DeleteUser", ReplyAction="http://tempuri.org/IUser/DeleteUserResponse")]
-        bool DeleteUser(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Delete", ReplyAction="http://tempuri.org/IUser/DeleteResponse")]
+        bool Delete(ShopService.Transporter.TUser user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/DeleteUser", ReplyAction="http://tempuri.org/IUser/DeleteUserResponse")]
-        System.Threading.Tasks.Task<bool> DeleteUserAsync(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Delete", ReplyAction="http://tempuri.org/IUser/DeleteResponse")]
+        System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TUser user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -101,44 +101,44 @@ namespace ShopFormsClient.UserReference {
             return base.Channel.AdminLoginAsync(name, pass);
         }
         
-        public bool CreateUser(string name, string pass) {
-            return base.Channel.CreateUser(name, pass);
+        public bool Create(ShopService.Transporter.TUser user) {
+            return base.Channel.Create(user);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateUserAsync(string name, string pass) {
-            return base.Channel.CreateUserAsync(name, pass);
+        public System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TUser user) {
+            return base.Channel.CreateAsync(user);
         }
         
-        public string[] GetUsersAsList() {
-            return base.Channel.GetUsersAsList();
+        public ShopService.Transporter.TUser Read(int id) {
+            return base.Channel.Read(id);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetUsersAsListAsync() {
-            return base.Channel.GetUsersAsListAsync();
+        public System.Threading.Tasks.Task<ShopService.Transporter.TUser> ReadAsync(int id) {
+            return base.Channel.ReadAsync(id);
         }
         
-        public string[] GetUserDetails(string user) {
-            return base.Channel.GetUserDetails(user);
+        public ShopService.Transporter.TUser[] ReadAll() {
+            return base.Channel.ReadAll();
         }
         
-        public System.Threading.Tasks.Task<string[]> GetUserDetailsAsync(string user) {
-            return base.Channel.GetUserDetailsAsync(user);
+        public System.Threading.Tasks.Task<ShopService.Transporter.TUser[]> ReadAllAsync() {
+            return base.Channel.ReadAllAsync();
         }
         
-        public bool UpdateUser(int id) {
-            return base.Channel.UpdateUser(id);
+        public bool Update(ShopService.Transporter.TUser user) {
+            return base.Channel.Update(user);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateUserAsync(int id) {
-            return base.Channel.UpdateUserAsync(id);
+        public System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TUser user) {
+            return base.Channel.UpdateAsync(user);
         }
         
-        public bool DeleteUser(string user) {
-            return base.Channel.DeleteUser(user);
+        public bool Delete(ShopService.Transporter.TUser user) {
+            return base.Channel.Delete(user);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteUserAsync(string user) {
-            return base.Channel.DeleteUserAsync(user);
+        public System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TUser user) {
+            return base.Channel.DeleteAsync(user);
         }
     }
 }

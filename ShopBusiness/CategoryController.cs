@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ShopModel;
 
 namespace ShopController
@@ -47,7 +45,9 @@ namespace ShopController
             {
                 if (t.Timestamp == GetTimestamp(t.Category_Id))
                 {
-                    t.Timestamp++;
+                    category = model.Categories.SingleOrDefault(x => x.Category_Id == t.Category_Id);
+                    category.Name = t.Name;
+                    category.Timestamp++;
                     model.SaveChanges();
                     return true;
                 }
@@ -64,6 +64,7 @@ namespace ShopController
             {
                 if (t.Timestamp == GetTimestamp(t.Category_Id))
                 {
+                    t = model.Categories.SingleOrDefault(x => x.Category_Id == t.Category_Id);
                     model.Categories.Remove(t);
                     model.SaveChanges();
                     return true;

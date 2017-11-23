@@ -2,22 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using ShopModel;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
 
 namespace ShopController
 {
-    public class UserController
+    public class UserController : IController<User>
     {
-        ShopModel.ShopModel userModel;
+        ShopModel.ShopModel db;
         User user;
         List<User> users;
-        //Constructor, initializes the EF model
+
         public UserController()
         {
-            userModel = new ShopModel.ShopModel();
+            db = new ShopModel.ShopModel();
         }
 
 
@@ -41,59 +38,13 @@ namespace ShopController
                 hash.Append(chunk.ToString("x2"));
             return hash.ToString();
         }
-
-
-        //Create a new User
-        public bool Create(string username, string pass)
-        {
-            bool isCreated = true;
-            user = new User();
-            user = userModel.Users.SingleOrDefault(x => x.Username.Equals(username));
-            if (user == null)
-            {
-                user = new User();
-                user.Username = username;
-                user.Salt = SaltGenerator(5);
-                user.Password = Hasher(pass + user.Salt);
-                user.Role = false;
-                userModel.Users.Add(user);
-                userModel.SaveChanges();
-            }
-            else
-                isCreated = false;
-            return isCreated;
-        }
         
-        //Update user by id
-        public bool Update(int id)
-        {
-            bool isUpdated = true;
-            // TO be done in web app
-            // will update User_Information
-            return isUpdated;
-        }
-        //Delete user by id
-        public bool Delete(string username)
-        {
-            bool isDeleted = true;
-            user = new User();
-            user = userModel.Users.SingleOrDefault(x => x.Username == username);
-            if (user != null)
-            {
-                userModel.User_Information.Remove(user.User_Information);
-                userModel.Users.Remove(user);
-                userModel.SaveChanges();
-            }
-            else
-                isDeleted = false;
-            return isDeleted;
-        }
 
         //Normal login
         public bool Login(string username, string password)
         {
             user = new User();
-            user = userModel.Users.SingleOrDefault(x => x.Username == username);
+            user = db.Users.SingleOrDefault(x => x.Username == username);
             bool access = String.Equals(user.Password, Hasher(password + user.Salt), StringComparison.Ordinal);
             return access;
         }
@@ -101,55 +52,64 @@ namespace ShopController
         public bool AdminLogin(string username, string password)
         {
             user = new User();
-            user = userModel.Users.SingleOrDefault(x => x.Username == username);
+            user = db.Users.SingleOrDefault(x => x.Username == username);
             bool access = String.Equals(user.Password, Hasher(password + user.Salt), StringComparison.Ordinal) && user.Role == true;
             return access;
         }
 
-        public List<string> GetUsersAsList()
+
+        public bool Create(User t)
         {
-            List<string> usernames = new List<string>();
-            users = new List<User>();
-            users = userModel.Users.ToList<User>();
-            foreach (User u in users)
-                usernames.Add(u.Username);
-            return usernames;
+            if (t != null)
+            {
+                db.Users.Add(t);
+                User_Information u = new User_Information();
+                u.User_Id = t.User_ID;
+                db.User_Information.Add(u);
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
         }
 
-        public string[] GetUserDetails(string username)
+        public User Read(int id)
         {
-            string[] details = new string[4];
-            user = new User();
-            User_Information info;
-            user = userModel.Users.SingleOrDefault(x => x.Username == username);
-            if(user != null)
+            return db.Users.SingleOrDefault(x => x.User_ID == id);
+        }
+
+        public List<User> ReadAll()
+        {
+            return db.Users.ToList<User>();
+        }
+
+        public bool Update(User t)
+        {
+            throw new NotImplementedException("Will implement soon I swer");
+            //use t.User_Information, call that
+            //and modify it here maybe then
+            //save the changes to db
+        }
+
+        public bool Delete(User t)
+        {
+            t = db.Users.SingleOrDefault(x => x.User_ID == t.User_ID);
+            if (t != null)
             {
-                info = userModel.User_Information.SingleOrDefault(x => x.User_Id == user.User_ID);
-                if (info != null)
-                {
-                    if (info.Name != null)
-                        details[0] = user.User_Information.Name;
-                    else
-                        details[0] = "NO VALUE SET";
-
-
-                    if (info.Email != null)
-                        details[1] = user.User_Information.Email;
-                    else
-                        details[1] = "NO VALUE SET";
-
-                    if (info.Address != null)
-                        details[2] = user.User_Information.Address;
-                    else
-                        details[2] = "NO VALUE SET";
-
-                    if (info.Phone != null)
-                        details[3] = user.User_Information.Phone;
-                    else
-                        details[3] = "NO VALUE SET";
-                }
+                db.User_Information.Remove(t.User_Information);
+                db.Users.Remove(t);
+                db.SaveChanges();
+                return true;
             }
-            return details;
+            else
+                return false;
+        }
+
+        public int GetTimestamp(int id)
+        {
+            throw new NotImplementedException("Oops");
+            //will be used at updating user information
+            //already in db
         }
     }
 }

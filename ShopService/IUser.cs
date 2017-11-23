@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using ShopService.Transporter;
 
 namespace ShopService
 {
@@ -18,18 +16,18 @@ namespace ShopService
         bool AdminLogin(string name, string pass);
 
         [OperationContract]
-        bool CreateUser(string name, string pass);
+        bool Create(TUser user);
 
         [OperationContract]
-        List<string> GetUsersAsList();
+        TUser Read(int id);
 
         [OperationContract]
-        string[] GetUserDetails(string user);
+        List<TUser> ReadAll();
+        
+        [OperationContract]
+        bool Update(TUser user);
 
         [OperationContract]
-        bool UpdateUser(int id);
-
-        [OperationContract]
-        bool DeleteUser(string user);
+        bool Delete(TUser user);
     }
 }

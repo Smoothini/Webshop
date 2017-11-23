@@ -23,6 +23,8 @@ namespace ShopModel
         [StringLength(20)]
         public string Phone { get; set; }
 
+        public int Timestamp { get; set; }
+
         public virtual User User { get; set; }
     }
 }

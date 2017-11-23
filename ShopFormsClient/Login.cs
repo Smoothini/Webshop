@@ -17,13 +17,11 @@ namespace ShopFormsClient
         public Login()
         {
             InitializeComponent();
-            errorLabel.Hide();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            UserReference.UserClient userClient = new UserReference.UserClient();
-            this.Text = userClient.Endpoint.Address.ToString();
+            errorLabel.Hide();
         }
 
         public bool isValid(string user, string pass)
