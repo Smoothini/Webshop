@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using ShopService.Transporter;
 
 namespace ShopFormsClient
 {
@@ -14,30 +9,24 @@ namespace ShopFormsClient
     {
         ProductReference.IProduct productRef;
         CategoryReference.ICategory categoryRef;
+        TProduct selected_product;
         public ProductWindow()
         {
             InitializeComponent();
+            selected_product = new TProduct();
         }
 
         void prepareComboBoxes()
         {
-            /*List<string> cats = new List<string>(categoryRef.GetCategoriesAsList());
-            foreach (string cat in cats)
+            //newCategoryComboBox.DataSource = categoryRef.ReadAll();
+            //categoryComboBox.DataSource = categoryRef.ReadAll();
+            List<TCategory> cats = new List<TCategory>(categoryRef.ReadAll());
+            foreach (TCategory cat in cats)
             {
-                categoryComboBox.Items.Add(cat);
                 newCategoryComboBox.Items.Add(cat);
-            }*/
+                categoryComboBox.Items.Add(cat);
+            }
         }
-        /*
-        string IdToName(int id)
-        {
-            //return categoryRef.IdToName(id);
-        }
-
-        int NameToId(string name)
-        {
-            //return categoryRef.NameToId(name);
-        }*/
 
         private void ProductWindow_Load(object sender, EventArgs e)
         {
@@ -49,30 +38,58 @@ namespace ShopFormsClient
         private void refreshButton_Click(object sender, EventArgs e)
         {
             productsBox.Items.Clear();
-            productsBox.Items.AddRange(productRef.ReadAllAsList());
+            productsBox.Items.AddRange(productRef.ReadAll());
+
+            newNameBox.Clear();
+            newDescBox.Clear();
+            newCategoryComboBox.Text = "";
+            newStockBox.Clear();
+            newPriceBox.Clear();
+
+            nameBox.Clear();
+            descBox.Clear();
+            categoryComboBox.Text = "";
+            stockBox.Clear();
+            priceBox.Clear();
         }
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            /*if (productRef.Create(nameBox.Text, descBox.Text, NameToId(categoryComboBox.SelectedItem.ToString()), int.Parse(stockBox.Text), decimal.Parse(priceBox.Text)))
-                createMessage.Text = "Product succesfully created";
+            TProduct new_product = new TProduct
+            {
+                id = 0,
+                name = nameBox.Text,
+                description = descBox.Text,
+                category = ((TCategory)categoryComboBox.SelectedItem).id,
+                stock = int.Parse(stockBox.Text),
+                price = decimal.Parse(priceBox.Text),
+                timestamp = 0
+            };
+            if (productRef.Create(new_product))
+                messageExtra.Text = "Product succesfully created";
             else
-                createMessage.Text = "Error, please check input details";
-            refreshButton.PerformClick();*/
+                messageExtra.Text = "Error, please check input details";
+            refreshButton.PerformClick();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            /*if (productRef.Update(productsBox.SelectedItem.ToString(), newNameBox.Text, newDescBox.Text, NameToId(newCategoryComboBox.SelectedItem.ToString()), int.Parse(newStockBox.Text), decimal.Parse(newPriceBox.Text)))
+            selected_product.name = newNameBox.Text;
+            selected_product.description = newDescBox.Text;
+            //selected_product.category = ((TCategory)categoryComboBox.SelectedItem).id;
+            //changing category bug
+            selected_product.stock = int.Parse(newStockBox.Text);
+            selected_product.price = decimal.Parse(newPriceBox.Text);
+            if (productRef.Update(selected_product))
                 messageExtra.Text = "Product succesfully updated!";
             else
                 messageExtra.Text = "Error in updating product";
-            refreshButton.PerformClick();*/
+            refreshButton.PerformClick();
         }
 
         private void addStockButton_Click(object sender, EventArgs e)
         {
-            if (productRef.Restock(productsBox.SelectedItem.ToString(), int.Parse(addedStockBox.Text)))
+            if (productRef.Restock(selected_product, int.Parse(addedStockBox.Text)))
                 messageExtra.Text = "Stock added succesfully";
             else
                 messageExtra.Text = "Error adding new stock";
@@ -81,7 +98,7 @@ namespace ShopFormsClient
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (productRef.Delete(productsBox.SelectedItem.ToString()))
+            if (productRef.Delete(selected_product))
                 messageExtra.Text = "Product succesfully deleted";
             else
                 messageExtra.Text = "Error deleting";
@@ -90,15 +107,16 @@ namespace ShopFormsClient
 
         private void productsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*if (productsBox.SelectedItem != null)
+            if (productsBox.SelectedItem != null)
             {
-                string[] details = productRef.GetProductDetails(productsBox.SelectedItem.ToString());
-                newNameBox.Text = details[0];
-                newDescBox.Text = details[1];
-                newCategoryComboBox.SelectedItem = IdToName(int.Parse(details[2]));
-                newStockBox.Text = details[3];
-                newPriceBox.Text = details[4];
-            }*/
+                TProduct p = (TProduct)productsBox.SelectedItem;
+                selected_product = (TProduct)productsBox.SelectedItem;
+                newNameBox.Text = selected_product.name;
+                newDescBox.Text = selected_product.description;
+                newCategoryComboBox.Text = categoryRef.Read(selected_product.category).ToString();
+                newStockBox.Text = selected_product.stock.ToString();
+                newPriceBox.Text = selected_product.price.ToString();
+            }
         }
     }
 }

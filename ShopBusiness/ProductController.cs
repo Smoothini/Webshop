@@ -7,110 +7,99 @@ using ShopModel;
 
 namespace ShopController
 {
-    public class ProductController
+    public class ProductController:IController<Product>
     {
-        ShopModel.ShopModel model;
+        ShopModel.ShopModel db;
         Product product;
         List<Product> products;
         public ProductController()
         {
-            model = new ShopModel.ShopModel();
+            db = new ShopModel.ShopModel();
         }
 
-        public bool Create(string name, string description, int category, int stock, decimal price)
+        public bool Create(Product t)
         {
-            bool isCreated = true;
-            product = model.Products.SingleOrDefault(x => x.Name == name);
-            if (product == null)
+            if (t != null)
             {
-                product = new Product
-                {
-                    Name = name,
-                    Description = description,
-                    Category_Id = category,
-                    Stock = stock,
-                    Price = price
-                };
-                model.Products.Add(product);
-                model.SaveChanges();
+                db.Products.Add(t);
+                db.SaveChanges();
+                return true;
             }
             else
-                isCreated = false;
-            return isCreated;
+                return false;
         }
 
-        public bool Update(string name, string newName, string newDescription, int newCategory, int newStock, decimal newPrice)
+        public Product Read(int id)
         {
-            bool isUpdated = true;
-            product = new Product();
-            product = model.Products.SingleOrDefault(x => x.Name == name);
-            if (product != null)
-                if (newName != null && newDescription != null && newCategory > 0 && newStock >= 0 && newPrice > 0)
+            return db.Products.SingleOrDefault(x => x.Product_Id == id);
+        }
+
+        public List<Product> ReadAll()
+        {
+            return db.Products.ToList<Product>();
+        }
+
+        public bool Update(Product t)
+        {
+            if (t != null)
+            {
+                if (t.Timestamp == GetTimestamp(t.Product_Id))
                 {
-                    product.Name = newName;
-                    product.Description = newDescription;
-                    product.Category_Id = newCategory;
-                    product.Stock = newStock;
-                    product.Price = newPrice;
-                    model.SaveChanges();
+                    product = db.Products.SingleOrDefault(x => x.Product_Id == t.Product_Id);
+                    product.Name = t.Name;
+                    product.Description = t.Description;
+                    product.Category_Id = t.Category_Id;
+                    product.Stock = t.Stock;
+                    product.Price = t.Price;
+                    product.Timestamp++;
+                    db.SaveChanges();
+                    return true;
                 }
                 else
-                    isUpdated = false;
-            else
-                isUpdated = false;
-
-            return isUpdated;
-        }
-
-        public bool Delete(string name)
-        {
-            bool isDeleted = true;
-            product = new Product();
-            product = model.Products.SingleOrDefault(x => x.Name == name);
-            if (product != null)
-            {
-                model.Products.Remove(product);
-                model.SaveChanges();
+                    return false;
             }
             else
-                isDeleted = false;
-            return isDeleted;
+                return false;
         }
 
-        public List<string> ReadAllAsList()
+        public bool Delete(Product t)
         {
-            List<string> names = new List<string>();
-            products = new List<Product>();
-            products = model.Products.ToList<Product>();
-            foreach (Product p in products)
-                names.Add(p.Name);
-            return names;
-        }
-
-        public string[] GetProductDetails(string name)
-        {
-            string[] details = new string[5];
-            product = new Product();
-            product = model.Products.SingleOrDefault(x => x.Name == name);
-            details[0] = product.Name;
-            details[1] = product.Description;
-            details[2] = product.Category_Id.ToString();
-            details[3] = product.Stock.ToString();
-            details[4] = product.Price.ToString();
-            return details;
-        }
-
-        public bool Restock(string name, int quantity)
-        {
-            bool isStocked = true;
-            product = new Product();
-            product = model.Products.SingleOrDefault(x => x.Name == name);
-            if (product != null)
-                product.Stock += quantity;
+            t = db.Products.SingleOrDefault(x => x.Product_Id == t.Product_Id);
+            if (t != null)
+            {
+                db.Products.Remove(t);
+                db.SaveChanges();
+                return true;
+            }
             else
-                isStocked = false;
-            model.SaveChanges();
-            return isStocked;
+                return false;
+        }
+        public bool Restock(Product t, int quantity)
+        {
+            if (t != null)
+            {
+                if (t.Timestamp == GetTimestamp(t.Product_Id))
+                {
+                    product = db.Products.SingleOrDefault(x => x.Product_Id == t.Product_Id);
+                    product.Stock += quantity;
+                    product.Timestamp++;
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+
+        public int GetTimestamp(int id)
+        {
+            product = db.Products.SingleOrDefault(x => x.Product_Id == id);
+            if (product != null)
+                return product.Timestamp;
+            else
+                return -1;
         }
 
     }

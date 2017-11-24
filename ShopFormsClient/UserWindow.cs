@@ -20,11 +20,11 @@ namespace ShopFormsClient
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            /*if (userRef.DeleteUser(usersBox.SelectedItem.ToString()))
+            if (userRef.Delete((TUser)usersBox.SelectedItem))
                 messageDelete.Text = "User succesfully removed";
             else
                 messageDelete.Text = "Error removing the user";
-            refreshButton.PerformClick();*/
+            refreshButton.PerformClick();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

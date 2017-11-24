@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.createMessage = new System.Windows.Forms.Label();
             this.createButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -147,7 +146,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.createMessage);
             this.groupBox1.Controls.Add(this.createButton);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label5);
@@ -161,18 +159,10 @@
             this.groupBox1.Controls.Add(this.priceBox);
             this.groupBox1.Location = new System.Drawing.Point(307, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(183, 206);
+            this.groupBox1.Size = new System.Drawing.Size(183, 179);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New product";
-            // 
-            // createMessage
-            // 
-            this.createMessage.AutoSize = true;
-            this.createMessage.Location = new System.Drawing.Point(6, 182);
-            this.createMessage.Name = "createMessage";
-            this.createMessage.Size = new System.Drawing.Size(0, 13);
-            this.createMessage.TabIndex = 4;
             // 
             // createButton
             // 
@@ -359,7 +349,7 @@
             // messageExtra
             // 
             this.messageExtra.AutoSize = true;
-            this.messageExtra.Location = new System.Drawing.Point(313, 241);
+            this.messageExtra.Location = new System.Drawing.Point(326, 228);
             this.messageExtra.Name = "messageExtra";
             this.messageExtra.Size = new System.Drawing.Size(0, 13);
             this.messageExtra.TabIndex = 5;
@@ -397,7 +387,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label createMessage;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;

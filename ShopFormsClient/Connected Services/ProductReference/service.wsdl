@@ -4,7 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ShopService.Transporter" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IProduct_Create_InputMessage">
@@ -12,6 +12,18 @@
   </wsdl:message>
   <wsdl:message name="IProduct_Create_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_Read_InputMessage">
+    <wsdl:part name="parameters" element="tns:Read" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_Read_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_ReadAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAll" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_ReadAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadAllResponse" />
   </wsdl:message>
   <wsdl:message name="IProduct_Update_InputMessage">
     <wsdl:part name="parameters" element="tns:Update" />
@@ -25,18 +37,6 @@
   <wsdl:message name="IProduct_Delete_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteResponse" />
   </wsdl:message>
-  <wsdl:message name="IProduct_ReadAllAsList_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReadAllAsList" />
-  </wsdl:message>
-  <wsdl:message name="IProduct_ReadAllAsList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReadAllAsListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IProduct_GetProductDetails_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetProductDetails" />
-  </wsdl:message>
-  <wsdl:message name="IProduct_GetProductDetails_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetProductDetailsResponse" />
-  </wsdl:message>
   <wsdl:message name="IProduct_Restock_InputMessage">
     <wsdl:part name="parameters" element="tns:Restock" />
   </wsdl:message>
@@ -48,6 +48,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProduct/Create" message="tns:IProduct_Create_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProduct/CreateResponse" message="tns:IProduct_Create_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Read">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/Read" message="tns:IProduct_Read_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/ReadResponse" message="tns:IProduct_Read_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/ReadAll" message="tns:IProduct_ReadAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/ReadAllResponse" message="tns:IProduct_ReadAll_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Update">
       <wsdl:input wsaw:Action="http://tempuri.org/IProduct/Update" message="tns:IProduct_Update_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProduct/UpdateResponse" message="tns:IProduct_Update_OutputMessage" />
@@ -55,14 +63,6 @@
     <wsdl:operation name="Delete">
       <wsdl:input wsaw:Action="http://tempuri.org/IProduct/Delete" message="tns:IProduct_Delete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProduct/DeleteResponse" message="tns:IProduct_Delete_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReadAllAsList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/ReadAllAsList" message="tns:IProduct_ReadAllAsList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/ReadAllAsListResponse" message="tns:IProduct_ReadAllAsList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetProductDetails">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/GetProductDetails" message="tns:IProduct_GetProductDetails_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/GetProductDetailsResponse" message="tns:IProduct_GetProductDetails_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Restock">
       <wsdl:input wsaw:Action="http://tempuri.org/IProduct/Restock" message="tns:IProduct_Restock_InputMessage" />
@@ -73,6 +73,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Create">
       <soap:operation soapAction="http://tempuri.org/IProduct/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <soap:operation soapAction="http://tempuri.org/IProduct/Read" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadAll">
+      <soap:operation soapAction="http://tempuri.org/IProduct/ReadAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -91,24 +109,6 @@
     </wsdl:operation>
     <wsdl:operation name="Delete">
       <soap:operation soapAction="http://tempuri.org/IProduct/Delete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReadAllAsList">
-      <soap:operation soapAction="http://tempuri.org/IProduct/ReadAllAsList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetProductDetails">
-      <soap:operation soapAction="http://tempuri.org/IProduct/GetProductDetails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

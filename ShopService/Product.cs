@@ -1,49 +1,81 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using System.Collections.Generic;
 using ShopController;
+using ShopService.Transporter;
 
 namespace ShopService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Product" in both code and config file together.
     public class Product : IProduct
     {
-        ProductController productController;
+        ProductController controller;
         public Product()
         {
-            productController = new ProductController();
-        }
-        public bool Create(string name, string description, int category, int stock, decimal price)
-        {
-            return productController.Create(name, description, category, stock, price);
+            controller = new ProductController();
         }
 
-        public bool Delete(string name)
+        public TProduct ModelToTransporter(ShopModel.Product product)
         {
-            return productController.Delete(name);
+            TProduct tproduct = new TProduct
+            {
+                id = product.Product_Id,
+                name = product.Name,
+                description = product.Description,
+                category = product.Category_Id,
+                stock = product.Stock,
+                price = product.Price,
+                timestamp = product.Timestamp
+            };
+            return tproduct;
         }
 
-        public string[] GetProductDetails(string name)
+        public ShopModel.Product TransporterToModel(TProduct tproduct)
         {
-            return productController.GetProductDetails(name);
+            ShopModel.Product product = new ShopModel.Product
+            {
+                Product_Id = tproduct.id,
+                Name = tproduct.name,
+                Description = tproduct.description,
+                Category_Id = tproduct.category,
+                Stock = tproduct.stock,
+                Price = tproduct.price,
+                Timestamp = tproduct.timestamp
+            };
+            return product;
         }
 
-        public List<string> ReadAllAsList()
+        public bool Create(TProduct product)
         {
-            return productController.ReadAllAsList();
+            return controller.Create(TransporterToModel(product));
         }
 
-        public bool Update(string name, string newName, string newDescription, int newCategory, int newStock, decimal newPrice)
+        public bool Delete(TProduct product)
         {
-            return productController.Update(name, newName, newDescription, newCategory, newStock, newPrice);
+            return controller.Delete(TransporterToModel(product));
         }
 
-        public bool Restock(string name, int quantity)
+        public TProduct Read(int id)
         {
-            return productController.Restock(name, quantity);
+            return ModelToTransporter(controller.Read(id));
+        }
+        
+        public List<TProduct> ReadAll()
+        {
+            List<TProduct> tlist = new List<TProduct>();
+            List<ShopModel.Product> list = new List<ShopModel.Product>();
+            list = controller.ReadAll();
+            foreach (ShopModel.Product p in list)
+                tlist.Add(ModelToTransporter(p));
+            return tlist;
+        }
+
+        public bool Update(TProduct product)
+        {
+            return controller.Update(TransporterToModel(product));
+        }
+
+        public bool Restock(TProduct product, int quantity)
+        {
+            return controller.Restock(TransporterToModel(product), quantity);
         }
     }
 }

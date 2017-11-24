@@ -16,40 +16,40 @@ namespace ShopFormsClient.ProductReference {
     public interface IProduct {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Create", ReplyAction="http://tempuri.org/IProduct/CreateResponse")]
-        bool Create(string name, string description, int category, int stock, decimal price);
+        bool Create(ShopService.Transporter.TProduct product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Create", ReplyAction="http://tempuri.org/IProduct/CreateResponse")]
-        System.Threading.Tasks.Task<bool> CreateAsync(string name, string description, int category, int stock, decimal price);
+        System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TProduct product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Read", ReplyAction="http://tempuri.org/IProduct/ReadResponse")]
+        ShopService.Transporter.TProduct Read(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Read", ReplyAction="http://tempuri.org/IProduct/ReadResponse")]
+        System.Threading.Tasks.Task<ShopService.Transporter.TProduct> ReadAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/ReadAll", ReplyAction="http://tempuri.org/IProduct/ReadAllResponse")]
+        ShopService.Transporter.TProduct[] ReadAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/ReadAll", ReplyAction="http://tempuri.org/IProduct/ReadAllResponse")]
+        System.Threading.Tasks.Task<ShopService.Transporter.TProduct[]> ReadAllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Update", ReplyAction="http://tempuri.org/IProduct/UpdateResponse")]
-        bool Update(string name, string newName, string newDescription, int newCategory, int newStock, decimal newPrice);
+        bool Update(ShopService.Transporter.TProduct product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Update", ReplyAction="http://tempuri.org/IProduct/UpdateResponse")]
-        System.Threading.Tasks.Task<bool> UpdateAsync(string name, string newName, string newDescription, int newCategory, int newStock, decimal newPrice);
+        System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TProduct product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Delete", ReplyAction="http://tempuri.org/IProduct/DeleteResponse")]
-        bool Delete(string name);
+        bool Delete(ShopService.Transporter.TProduct product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Delete", ReplyAction="http://tempuri.org/IProduct/DeleteResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAsync(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/ReadAllAsList", ReplyAction="http://tempuri.org/IProduct/ReadAllAsListResponse")]
-        string[] ReadAllAsList();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/ReadAllAsList", ReplyAction="http://tempuri.org/IProduct/ReadAllAsListResponse")]
-        System.Threading.Tasks.Task<string[]> ReadAllAsListAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductDetails", ReplyAction="http://tempuri.org/IProduct/GetProductDetailsResponse")]
-        string[] GetProductDetails(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductDetails", ReplyAction="http://tempuri.org/IProduct/GetProductDetailsResponse")]
-        System.Threading.Tasks.Task<string[]> GetProductDetailsAsync(string name);
+        System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TProduct product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Restock", ReplyAction="http://tempuri.org/IProduct/RestockResponse")]
-        bool Restock(string name, int quantity);
+        bool Restock(ShopService.Transporter.TProduct product, int quantity);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Restock", ReplyAction="http://tempuri.org/IProduct/RestockResponse")]
-        System.Threading.Tasks.Task<bool> RestockAsync(string name, int quantity);
+        System.Threading.Tasks.Task<bool> RestockAsync(ShopService.Transporter.TProduct product, int quantity);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -79,52 +79,52 @@ namespace ShopFormsClient.ProductReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool Create(string name, string description, int category, int stock, decimal price) {
-            return base.Channel.Create(name, description, category, stock, price);
+        public bool Create(ShopService.Transporter.TProduct product) {
+            return base.Channel.Create(product);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateAsync(string name, string description, int category, int stock, decimal price) {
-            return base.Channel.CreateAsync(name, description, category, stock, price);
+        public System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TProduct product) {
+            return base.Channel.CreateAsync(product);
         }
         
-        public bool Update(string name, string newName, string newDescription, int newCategory, int newStock, decimal newPrice) {
-            return base.Channel.Update(name, newName, newDescription, newCategory, newStock, newPrice);
+        public ShopService.Transporter.TProduct Read(int id) {
+            return base.Channel.Read(id);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateAsync(string name, string newName, string newDescription, int newCategory, int newStock, decimal newPrice) {
-            return base.Channel.UpdateAsync(name, newName, newDescription, newCategory, newStock, newPrice);
+        public System.Threading.Tasks.Task<ShopService.Transporter.TProduct> ReadAsync(int id) {
+            return base.Channel.ReadAsync(id);
         }
         
-        public bool Delete(string name) {
-            return base.Channel.Delete(name);
+        public ShopService.Transporter.TProduct[] ReadAll() {
+            return base.Channel.ReadAll();
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteAsync(string name) {
-            return base.Channel.DeleteAsync(name);
+        public System.Threading.Tasks.Task<ShopService.Transporter.TProduct[]> ReadAllAsync() {
+            return base.Channel.ReadAllAsync();
         }
         
-        public string[] ReadAllAsList() {
-            return base.Channel.ReadAllAsList();
+        public bool Update(ShopService.Transporter.TProduct product) {
+            return base.Channel.Update(product);
         }
         
-        public System.Threading.Tasks.Task<string[]> ReadAllAsListAsync() {
-            return base.Channel.ReadAllAsListAsync();
+        public System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TProduct product) {
+            return base.Channel.UpdateAsync(product);
         }
         
-        public string[] GetProductDetails(string name) {
-            return base.Channel.GetProductDetails(name);
+        public bool Delete(ShopService.Transporter.TProduct product) {
+            return base.Channel.Delete(product);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetProductDetailsAsync(string name) {
-            return base.Channel.GetProductDetailsAsync(name);
+        public System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TProduct product) {
+            return base.Channel.DeleteAsync(product);
         }
         
-        public bool Restock(string name, int quantity) {
-            return base.Channel.Restock(name, quantity);
+        public bool Restock(ShopService.Transporter.TProduct product, int quantity) {
+            return base.Channel.Restock(product, quantity);
         }
         
-        public System.Threading.Tasks.Task<bool> RestockAsync(string name, int quantity) {
-            return base.Channel.RestockAsync(name, quantity);
+        public System.Threading.Tasks.Task<bool> RestockAsync(ShopService.Transporter.TProduct product, int quantity) {
+            return base.Channel.RestockAsync(product, quantity);
         }
     }
 }

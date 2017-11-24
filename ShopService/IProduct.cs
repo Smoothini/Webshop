@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using ShopService.Transporter;
 
 namespace ShopService
 {
@@ -11,22 +12,22 @@ namespace ShopService
     public interface IProduct
     {
         [OperationContract]
-        bool Create(string name, string description, int category, int stock, decimal price);
+        bool Create(TProduct product);
 
         [OperationContract]
-        bool Update(string name, string newName, string newDescription, int newCategory, int newStock, decimal newPrice);
+        TProduct Read(int id);
 
         [OperationContract]
-        bool Delete(string name);
+        List<TProduct> ReadAll();
 
         [OperationContract]
-        List<string> ReadAllAsList();
+        bool Update(TProduct product);
 
         [OperationContract]
-        string[] GetProductDetails(string name);
+        bool Delete(TProduct product);
 
         [OperationContract]
-        bool Restock(string name, int quantity);
+        bool Restock(TProduct product, int quantity);
 
     }
 }
