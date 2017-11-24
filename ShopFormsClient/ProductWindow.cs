@@ -76,8 +76,7 @@ namespace ShopFormsClient
         {
             selected_product.name = newNameBox.Text;
             selected_product.description = newDescBox.Text;
-            //selected_product.category = ((TCategory)categoryComboBox.SelectedItem).id;
-            //changing category bug
+            selected_product.category = ((TCategory)newCategoryComboBox.SelectedItem).id;
             selected_product.stock = int.Parse(newStockBox.Text);
             selected_product.price = decimal.Parse(newPriceBox.Text);
             if (productRef.Update(selected_product))
