@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ShopWebFormsClient.Index" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ShopWebFormsClient.Index" %>
 
 <!DOCTYPE html>
 
@@ -18,6 +19,7 @@
         <p>
             <asp:Label ID="StatusLabel" runat="server" Text="Loading..."></asp:Label>
         </p>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

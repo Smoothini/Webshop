@@ -34,6 +34,8 @@ namespace ShopWebFormsClient
                 {
                     Session["user"] = UserBox.Text;
                     LoginStatus.Text = "Successfully logged in";
+                    Response.Cookies["user"]["username"] = UserBox.Text;
+                    Response.Redirect("Main.aspx");
                 }
                 else
                     LoginStatus.Text = "Error, please try again";
