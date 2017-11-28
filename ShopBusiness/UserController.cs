@@ -62,6 +62,9 @@ namespace ShopController
         {
             if (t != null)
             {
+                t.Salt = SaltGenerator(5);
+                t.Password = Hasher(t.Password + t.Salt);
+                t.Role = false;
                 db.Users.Add(t);
                 User_Information u = new User_Information();
                 u.User_Id = t.User_ID;
