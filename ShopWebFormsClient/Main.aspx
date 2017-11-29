@@ -9,17 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <p>
-                <asp:Label ID="Label1" runat="server" Text="Items"></asp:Label>
-                </p>
-            <p>
-                
-                <asp:DropDownList ID="ListCategories" runat="server"></asp:DropDownList>
-                
-                </p>
-            <p>
-                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-            </p>
+            <h2>Items for sale</h2>
+            <h4>Categories</h4>
+            <asp:DropDownList ID="ListCategories" runat="server"></asp:DropDownList>
             <asp:Panel ID="PanelProducts" runat="server"></asp:Panel>
         </div>
     </form>

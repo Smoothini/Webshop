@@ -35,6 +35,10 @@
                 <td><asp:Button ID="btnAddToCart" runat="server" Text="Add to cart" OnClick="btnAddToCart_Click"/></td>
             </tr>
         </table>
+        <asp:HyperLink ID="GoBackLink" runat="server" NavigateUrl="~/Main.aspx">Go back</asp:HyperLink><br />
+        <asp:Label ID="AddStatus" runat="server"></asp:Label><br />
+        <asp:HyperLink ID="ViewCart" runat="server" NavigateUrl="~/Cart.aspx">View cart</asp:HyperLink>
+        
     </form>
 </body>
 </html>

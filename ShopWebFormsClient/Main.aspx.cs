@@ -13,7 +13,6 @@ namespace ShopWebFormsClient
         CategoryReference.ICategory catRef;
         List<ProductReference.TProduct> prods;
         List<CategoryReference.TCategory> cats;
-        List<Button> buttons;
         protected void Page_Load(object sender, EventArgs e)
         {
             Prepare();
@@ -31,6 +30,8 @@ namespace ShopWebFormsClient
 
         public void LoadCategories()
         {
+            ListItem all = new ListItem("Everything", "all");
+            ListCategories.Items.Add(all);
             foreach(CategoryReference.TCategory cat in cats)
             {
                 ListItem item = new ListItem(cat.name, cat.id.ToString());
@@ -45,40 +46,21 @@ namespace ShopWebFormsClient
                 Panel productPanel = new Panel();
                 Label nameLabel = new Label();
                 Label priceLabel = new Label();
-                HyperLink viewLink = new HyperLink();
                 ImageButton viewButton = new ImageButton();
 
                 nameLabel.Text = prod.name;
                 priceLabel.Text = prod.price.ToString();
-                viewButton.PostBackUrl = "~Product.aspx?id=" + prod.id;
+                viewButton.ImageUrl = "resources/checkbtn.png";
+                viewButton.PostBackUrl = "Product.aspx?id=" + prod.id;
 
                 productPanel.Controls.Add(nameLabel);
+                productPanel.Controls.Add(new Literal { Text = "<br/>" });
                 productPanel.Controls.Add(priceLabel);
-                productPanel.Controls.Add(viewLink);
+                productPanel.Controls.Add(new Literal { Text = "<br/>" });
+                productPanel.Controls.Add(viewButton);
 
                 PanelProducts.Controls.Add(productPanel);
             }
-
-            string TopRow = @"<table>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Price</th>
-                                </tr>";
-            string Bottom = @"</table>";
-            Literal1.Text += TopRow;
-            foreach(ProductReference.TProduct prod in prods)
-            {
-                Literal1.Text += "<tr>";
-                Literal1.Text += "<td>" + prod.id + "</td>";
-                Literal1.Text += "<td>" + prod.name + "</td>";
-                Literal1.Text += "<td>" + prod.description + "</td>";
-                Literal1.Text += "<td>" + prod.price + "</td>";
-                Literal1.Text += "<td>Button goes here</td>";
-                Literal1.Text += "</tr>";
-            }
-            Literal1.Text += Bottom;
         }
     }
 }

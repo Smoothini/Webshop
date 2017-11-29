@@ -139,6 +139,7 @@
     <None Include="Connected Services\CategoryReference\ShopService.Transporter.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Cart.aspx" />
     <Content Include="Connected Services\CategoryReference\ShopWebFormsClient.CategoryReference.TCategory.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -204,6 +205,7 @@
     <Content Include="Main.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="resources\checkbtn.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -241,6 +243,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\CategoryReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -335,6 +344,7 @@
     <WCFMetadataStorage Include="Connected Services\ProductReference\" />
     <WCFMetadataStorage Include="Connected Services\UserReference\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
