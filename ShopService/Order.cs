@@ -22,6 +22,7 @@ namespace ShopService
         {
             ShopModel.Order order = new ShopModel.Order
             {
+                Order_Id = torder.orderid,
                 User_Id = torder.userid,
                 Date = torder.date,
                 IsDelivered = false,

@@ -9,6 +9,7 @@ namespace ShopModel
     public partial class User_Information
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int User_Id { get; set; }
 
         [StringLength(50)]

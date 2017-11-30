@@ -17,7 +17,8 @@ namespace ShopModel
 
         [Key]
         public int User_ID { get; set; }
-        
+
+        [Required]
         [StringLength(50)]
         public string Username { get; set; }
 

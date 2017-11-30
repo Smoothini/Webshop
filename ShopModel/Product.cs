@@ -17,9 +17,13 @@ namespace ShopModel
 
         [Key]
         public int Product_Id { get; set; }
-        
+
+        [Required]
+        [StringLength(100)]
         public string Name { get; set; }
-        
+
+        [Required]
+        [StringLength(500)]
         public string Description { get; set; }
 
         public int Category_Id { get; set; }

@@ -16,11 +16,12 @@ namespace ShopModel
         }
 
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Order_Id { get; set; }
 
         public int User_Id { get; set; }
-        
+
+        [Required]
+        [StringLength(30)]
         public string Date { get; set; }
 
         public bool IsDelivered { get; set; }

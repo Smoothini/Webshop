@@ -35,6 +35,10 @@ namespace ShopModel
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Order_Item>()
+                .Property(e => e.Price)
+                .HasPrecision(18, 0);
+
             modelBuilder.Entity<Product>()
                 .Property(e => e.Price)
                 .HasPrecision(18, 0);

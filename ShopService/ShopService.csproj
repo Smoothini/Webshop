@@ -94,7 +94,7 @@
       <Name>ShopController</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShopModel\ShopModel.csproj">
-      <Project>{41a490d9-2601-45e6-b5a0-b776c644ecc8}</Project>
+      <Project>{097a7ab7-ea1e-4bc6-b62a-0fcb97c18868}</Project>
       <Name>ShopModel</Name>
     </ProjectReference>
   </ItemGroup>

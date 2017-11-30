@@ -77,6 +77,7 @@ namespace ShopWebFormsClient
             OrderReference.TOrder order = new OrderReference.TOrder();
             if(NotEmptyCart())
             {
+                order.orderid = 0;
                 order.userid = 2020;
                 order.date = DateTime.Now.ToString();
                 order.isDelivered = false;

@@ -9,7 +9,6 @@ namespace ShopModel
     public partial class Order_Item
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Item_Id { get; set; }
 
         public int Product_Id { get; set; }
