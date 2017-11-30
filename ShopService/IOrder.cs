@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using ShopService.Transporter;
 
 namespace ShopService
 {
@@ -12,6 +13,6 @@ namespace ShopService
     public interface IOrder
     {
         [OperationContract]
-        void DoWork();
+        bool Create(TOrder order);
     }
 }

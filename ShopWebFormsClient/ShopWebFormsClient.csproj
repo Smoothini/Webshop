@@ -140,6 +140,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Cart.aspx" />
+    <Content Include="Checkout.aspx" />
     <Content Include="Connected Services\CategoryReference\ShopWebFormsClient.CategoryReference.TCategory.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -249,6 +250,13 @@
     </Compile>
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\CategoryReference\Reference.cs">
       <AutoGen>True</AutoGen>

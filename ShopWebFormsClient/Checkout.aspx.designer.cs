@@ -10,7 +10,7 @@
 namespace ShopWebFormsClient {
     
     
-    public partial class Cart {
+    public partial class Checkout {
         
         /// <summary>
         /// form1 control.
@@ -22,31 +22,40 @@ namespace ShopWebFormsClient {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// CartProducts control.
+        /// OrderDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table CartProducts;
+        protected global::System.Web.UI.WebControls.Literal OrderDetails;
         
         /// <summary>
-        /// EmptyCart control.
+        /// CardInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EmptyCart;
+        protected global::System.Web.UI.WebControls.TextBox CardInput;
         
         /// <summary>
-        /// Checkout control.
+        /// PlaceOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Checkout;
+        protected global::System.Web.UI.WebControls.Button PlaceOrder;
+        
+        /// <summary>
+        /// OrderStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label OrderStatus;
         
         /// <summary>
         /// GoBack control.

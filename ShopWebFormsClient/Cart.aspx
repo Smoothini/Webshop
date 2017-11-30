@@ -14,7 +14,9 @@
             <asp:Table ID="CartProducts" runat="server">
             </asp:Table>
         </div>
-        <asp:Button ID="EmptyCart" runat="server" OnClick="EmptyCart_Click" Text="Empty cart" />
+        <asp:Button ID="EmptyCart" runat="server" OnClick="EmptyCart_Click" Text="Empty cart" /><br /><br />
+        <asp:HyperLink ID="Checkout" runat="server" NavigateUrl ="~/Checkout.aspx">Checkout cart</asp:HyperLink><br /><br />
+        <asp:HyperLink ID="GoBack" runat="server" NavigateUrl="~/Main.aspx">Go back</asp:HyperLink>
     </form>
 </body>
 </html>

@@ -103,11 +103,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShopBusiness\ShopController.csproj">
+    <ProjectReference Include="..\ShopController\ShopController.csproj">
       <Project>{e8ae30e6-e896-4c35-b9d8-295b10d74757}</Project>
       <Name>ShopController</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ShopData\ShopModel.csproj">
+    <ProjectReference Include="..\ShopModel\ShopModel.csproj">
       <Project>{41a490d9-2601-45e6-b5a0-b776c644ecc8}</Project>
       <Name>ShopModel</Name>
     </ProjectReference>

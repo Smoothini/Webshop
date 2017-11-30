@@ -7,8 +7,8 @@
     <ProjectGuid>{E8AE30E6-E896-4C35-B9D8-295B10D74757}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ShopBusiness</RootNamespace>
-    <AssemblyName>ShopBusiness</AssemblyName>
+    <RootNamespace>ShopController</RootNamespace>
+    <AssemblyName>ShopController</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,12 +50,13 @@
   <ItemGroup>
     <Compile Include="CategoryController.cs" />
     <Compile Include="IController.cs" />
+    <Compile Include="OrderController.cs" />
     <Compile Include="ProductController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShopData\ShopModel.csproj">
+    <ProjectReference Include="..\ShopModel\ShopModel.csproj">
       <Project>{41a490d9-2601-45e6-b5a0-b776c644ecc8}</Project>
       <Name>ShopModel</Name>
     </ProjectReference>

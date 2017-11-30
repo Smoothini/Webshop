@@ -16,10 +16,9 @@ namespace ShopWebFormsClient
 
         public void LoadCartCookie()
         {
-
+            int sum = 0;
             if (Request.Cookies["shoppingcart"] != null)
             {
-                int sum = 0;
                 LoadHeader();
                 string lcookies = Request.Cookies["shoppingcart"].Value;
                 string[] cookies = lcookies.Split('|');
@@ -48,6 +47,8 @@ namespace ShopWebFormsClient
                 bottom.Cells.Add(info);
                 bottom.Cells.Add(bigprice);
                 CartProducts.Rows.Add(bottom);
+                HttpCookie total = new HttpCookie("carttotal") { Value = sum.ToString() };
+                Response.Cookies.Add(total);
             }
             else
             {
@@ -57,7 +58,6 @@ namespace ShopWebFormsClient
                 CartProducts.Rows.Add(row);
                 EmptyCart.Visible = false;
             }
-
         }
 
         public void LoadHeader()
@@ -83,6 +83,9 @@ namespace ShopWebFormsClient
                 HttpCookie cookie = new HttpCookie("shoppingcart");
                 cookie.Expires = DateTime.Now.AddDays(-1d);
                 Response.Cookies.Add(cookie);
+                HttpCookie total = new HttpCookie("carttotal");
+                total.Expires = DateTime.Now.AddDays(-1d);
+                Response.Cookies.Add(total);
                 Response.Redirect("Cart.aspx");
             }
 
