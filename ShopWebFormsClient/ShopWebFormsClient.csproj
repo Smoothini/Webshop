@@ -144,6 +144,16 @@
     <Content Include="Connected Services\CategoryReference\ShopWebFormsClient.CategoryReference.TCategory.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\OrderReference\service.wsdl" />
+    <None Include="Connected Services\OrderReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderReference\ShopService.Transporter.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProductReference\service.wsdl" />
     <None Include="Connected Services\ProductReference\service.xsd">
       <SubType>Designer</SubType>
@@ -157,6 +167,12 @@
     <None Include="Connected Services\CategoryReference\configuration91.svcinfo" />
     <None Include="Connected Services\CategoryReference\configuration.svcinfo" />
     <None Include="Connected Services\CategoryReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\OrderReference\configuration91.svcinfo" />
+    <None Include="Connected Services\OrderReference\configuration.svcinfo" />
+    <None Include="Connected Services\OrderReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -263,6 +279,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\OrderReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProductReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -349,6 +370,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CategoryReference\" />
+    <WCFMetadataStorage Include="Connected Services\OrderReference\" />
     <WCFMetadataStorage Include="Connected Services\ProductReference\" />
     <WCFMetadataStorage Include="Connected Services\UserReference\" />
   </ItemGroup>

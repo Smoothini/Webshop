@@ -15,7 +15,7 @@ namespace ShopService.Transporter
         [DataMember]
         public int userid;
         [DataMember]
-        public DateTime date;
+        public string date;
         [DataMember]
         public bool isDelivered;
         [DataMember]

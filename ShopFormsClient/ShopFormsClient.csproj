@@ -62,6 +62,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\OrderReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProductReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,6 +118,9 @@
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrderWindow.resx">
+      <DependentUpon>OrderWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductWindow.resx">
       <DependentUpon>ProductWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +144,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\CategoryReference\ShopService.Transporter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderReference\service.wsdl" />
+    <None Include="Connected Services\OrderReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OrderReference\ShopService.Transporter.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProductReference\service.wsdl" />
@@ -180,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CategoryReference\" />
+    <WCFMetadataStorage Include="Connected Services\OrderReference\" />
     <WCFMetadataStorage Include="Connected Services\ProductReference\" />
     <WCFMetadataStorage Include="Connected Services\UserReference\" />
   </ItemGroup>
@@ -224,6 +243,18 @@
       <Project>{33213cdb-06c2-43a8-9c78-e4172b36e61b}</Project>
       <Name>ShopService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OrderReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OrderReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OrderReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

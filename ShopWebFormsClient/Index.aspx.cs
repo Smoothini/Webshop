@@ -15,8 +15,6 @@ namespace ShopWebFormsClient
                 StatusLabel.Text = "You are not logged in";
             else
                 StatusLabel.Text = Session["user"].ToString() + " is logged in";
-            if(Request.Cookies["user"]["username"] != null)
-                Label1.Text = Request.Cookies["user"]["username"];
         }
     }
 }

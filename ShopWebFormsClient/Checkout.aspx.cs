@@ -9,9 +9,12 @@ namespace ShopWebFormsClient
 {
     public partial class Checkout : System.Web.UI.Page
     {
+        OrderReference.IOrder orderRef;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadOrderDetails();
+            orderRef = new OrderReference.OrderClient();
         }
 
         public void LoadOrderDetails()
@@ -24,13 +27,21 @@ namespace ShopWebFormsClient
 
         protected void PlaceOrder_Click(object sender, EventArgs e)
         {
-            if (LuhnChecker(CardInput.Text))
+            if (NotEmptyCart())
             {
-                OrderStatus.Text = "Payment made and order succesfully placed";
-                EmptyCart();
+                if (LuhnChecker(CardInput.Text))
+                {
+                    if (orderRef.Create(CartToOrder()))
+                    {
+                        EmptyCart();
+                        OrderStatus.Text = "Payment made and order succesfully placed";
+                    }
+                    else
+                        OrderStatus.Text = "Error, cart is empty";
+                }
+                else
+                    OrderStatus.Text = "Error, please input a valid credit card";
             }
-            else
-                OrderStatus.Text = "Error, please input a valid credit card";
         }
 
         public bool LuhnChecker(string input)
@@ -54,6 +65,24 @@ namespace ShopWebFormsClient
                 total.Expires = DateTime.Now.AddDays(-1d);
                 Response.Cookies.Add(total);
             }
+        }
+
+        public bool NotEmptyCart()
+        {
+            return (Request.Cookies["shoppingcart"] != null);
+        }
+
+        public OrderReference.TOrder CartToOrder()
+        {
+            OrderReference.TOrder order = new OrderReference.TOrder();
+            if(NotEmptyCart())
+            {
+                order.userid = 2020;
+                order.date = DateTime.Now.ToString();
+                order.isDelivered = false;
+                order.price = decimal.Parse(Request.Cookies["carttotal"].Value);
+            }
+            return order;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ShopController
 {
@@ -18,7 +19,16 @@ namespace ShopController
 
         public bool Create(Order t)
         {
-            throw new NotImplementedException();
+            if (t != null)
+            {
+                db.Orders.Add(t);
+                db.SaveChanges();
+                //db.Order_Item.AddRange(t.Order_Item);
+                //db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
         }
         public Order Read(int id)
         {

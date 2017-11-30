@@ -16,13 +16,12 @@ namespace ShopModel
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Order_Id { get; set; }
 
         public int User_Id { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime Date { get; set; }
+        
+        public string Date { get; set; }
 
         public bool IsDelivered { get; set; }
 
