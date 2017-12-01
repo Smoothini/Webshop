@@ -22,5 +22,9 @@ namespace ShopService.Transporter
         public decimal price;
         [DataMember]
         public List<TOrderItem> items;
+        public TOrder()
+        {
+            items = new List<TOrderItem>();
+        }
     }
 }

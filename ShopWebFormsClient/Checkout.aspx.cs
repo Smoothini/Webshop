@@ -82,6 +82,23 @@ namespace ShopWebFormsClient
                 order.date = DateTime.Now.ToString();
                 order.isDelivered = false;
                 order.price = decimal.Parse(Request.Cookies["carttotal"].Value);
+               
+
+                string lcookies = Request.Cookies["shoppingcart"].Value;
+                string[] cookies = lcookies.Split('|');
+                foreach (string cookie in cookies)
+                {
+                    string[] c = cookie.Split(',');
+                    OrderReference.TOrderItem item = new OrderReference.TOrderItem
+                    {
+                        itemid = 0,
+                        productid = int.Parse(c[0]),
+                        quantity = int.Parse(c[2]),
+                        price = int.Parse(c[2]) * int.Parse(c[3])
+                    };
+                    //order.items
+                }
+
             }
             return order;
         }
