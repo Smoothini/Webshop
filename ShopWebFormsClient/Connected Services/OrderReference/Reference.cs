@@ -29,7 +29,7 @@ namespace ShopWebFormsClient.OrderReference {
         private bool isDeliveredField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShopWebFormsClient.OrderReference.TOrderItem[] itemsField;
+        private System.Collections.Generic.List<ShopWebFormsClient.OrderReference.TOrderItem> itemsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int orderidField;
@@ -77,7 +77,7 @@ namespace ShopWebFormsClient.OrderReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShopWebFormsClient.OrderReference.TOrderItem[] items {
+        public System.Collections.Generic.List<ShopWebFormsClient.OrderReference.TOrderItem> items {
             get {
                 return this.itemsField;
             }

@@ -34,7 +34,7 @@ namespace ShopWebFormsClient
                     if (orderRef.Create(CartToOrder()))
                     {
                         EmptyCart();
-                        OrderStatus.Text = "Payment made and order succesfully placed";
+                        OrderStatus.Text = "Payment made and order succesfully placed ";
                     }
                     else
                         OrderStatus.Text = "Error, cart is empty";
@@ -82,8 +82,7 @@ namespace ShopWebFormsClient
                 order.date = DateTime.Now.ToString();
                 order.isDelivered = false;
                 order.price = decimal.Parse(Request.Cookies["carttotal"].Value);
-               
-
+                order.items = new List<OrderReference.TOrderItem>();
                 string lcookies = Request.Cookies["shoppingcart"].Value;
                 string[] cookies = lcookies.Split('|');
                 foreach (string cookie in cookies)
@@ -96,9 +95,8 @@ namespace ShopWebFormsClient
                         quantity = int.Parse(c[2]),
                         price = int.Parse(c[2]) * int.Parse(c[3])
                     };
-                    //order.items
+                    order.items.Add(item);
                 }
-
             }
             return order;
         }

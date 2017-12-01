@@ -19,12 +19,17 @@ namespace ShopController
 
         public bool Create(Order t)
         {
+            int i = 0;
             if (t != null)
             {
                 db.Orders.Add(t);
+                foreach (Order_Item item in t.Order_Item)
+                {
+                    db.Order_Item.Add(item);
+                    i++;
+                    MessageBox.Show(i.ToString());
+                }
                 db.SaveChanges();
-                //db.Order_Item.AddRange(t.Order_Item);
-                //db.SaveChanges();
                 return true;
             }
             else

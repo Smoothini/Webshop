@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="59a554a8-676d-4c7e-9b7f-e9b48c94be41" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b8897287-6601-408e-9204-747d661654db" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,7 +9,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -22,10 +24,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="296d8a24-d917-4049-8667-9c7f253a964c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="49991b44-da38-40f1-bdae-ce22d3720eab" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="9e2eec19-7527-4ede-9dcb-82df8bfc8c46" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
-    <MetadataFile FileName="ShopService.Transporter.xsd" MetadataType="Schema" ID="a8bbe0b1-173d-403c-a4ff-0fbdd034e08a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d05d4969-e8f1-434f-8fb8-9771d6a51d78" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d6768794-c99d-4e20-80e5-88e1fef385d0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="64396b8b-2f3e-492e-acfc-cae3d81825c4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
+    <MetadataFile FileName="ShopService.Transporter.xsd" MetadataType="Schema" ID="d01638c4-d654-4b19-ae0c-7cc7ac0e7bd7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ShopService/Order/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

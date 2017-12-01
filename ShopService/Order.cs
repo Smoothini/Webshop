@@ -28,7 +28,17 @@ namespace ShopService
                 IsDelivered = false,
                 Price = torder.price
             };
-            
+            foreach(TOrderItem titem in torder.items)
+            {
+                ShopModel.Order_Item item = new ShopModel.Order_Item
+                {
+                    Product_Id = titem.productid,
+                    Order_Id = titem.orderid,
+                    Quantity = titem.quantity,
+                    Price = titem.price
+                };
+                order.Order_Item.Add(item);
+            }
             return order;
         }
 
