@@ -7,29 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ShopWebFormsClient
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace ShopWebFormsClient {
+    
+    
+    public partial class Products {
+        
         /// <summary>
-        /// HeadContent control.
+        /// ListCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-
+        protected global::System.Web.UI.WebControls.DropDownList ListCategories;
+        
         /// <summary>
-        /// MainContent control.
+        /// PanelProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Panel PanelProducts;
+        
+        /// <summary>
+        /// TableProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table TableProducts;
     }
 }

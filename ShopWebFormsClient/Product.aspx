@@ -1,21 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="ShopWebFormsClient.Product" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+﻿<%@ Page Language="C#" MasterPageFile="~/WebshopMaster.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="ShopWebFormsClient.Product" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
     <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <br />
         <table>
             <tr>
                 <td rowspan ="4">img?</td>
-                <td><asp:Label ID ="labelName" Text ="Name" runat ="server"></asp:Label></td>
+                <td><h2><asp:Label ID ="labelName" Text ="Name" runat ="server"></asp:Label></h2></td>
             </tr>
             <tr>
                 <td><asp:Label ID ="labelDescription" Text ="Description" runat ="server"></asp:Label><br />
-                    Price: <asp:Label ID ="labelPrice" Text ="hgf" runat ="server"></asp:Label></td>
+                    Price: <asp:Label ID ="labelPrice" Text ="0" runat ="server"></asp:Label></td>
                 <asp:Label ID="labelQuantity" Text ="" runat="server"></asp:Label>
             </tr>
             <tr>
@@ -28,6 +24,10 @@
                     <asp:ListItem>4</asp:ListItem>
                     <asp:ListItem>5</asp:ListItem>
                     <asp:ListItem>6</asp:ListItem>
+                    <asp:ListItem>7</asp:ListItem>
+                    <asp:ListItem>8</asp:ListItem>
+                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
                     </asp:DropDownList></td>
             </tr>
             <tr>
@@ -35,10 +35,5 @@
                 <td><asp:Button ID="btnAddToCart" runat="server" Text="Add to cart" OnClick="btnAddToCart_Click"/></td>
             </tr>
         </table>
-        <asp:HyperLink ID="GoBackLink" runat="server" NavigateUrl="~/Main.aspx">Go back</asp:HyperLink><br />
         <asp:Label ID="AddStatus" runat="server"></asp:Label><br />
-        <asp:HyperLink ID="ViewCart" runat="server" NavigateUrl="~/Cart.aspx">View cart</asp:HyperLink>
-        
-    </form>
-</body>
-</html>
+</asp:Content>

@@ -1,19 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Main.aspx.cs" Inherits="ShopWebFormsClient.Main" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <h2>Items for sale</h2>
-            <h4>Categories</h4>
-            <asp:DropDownList ID="ListCategories" runat="server"></asp:DropDownList>
-            <asp:Panel ID="PanelProducts" runat="server"></asp:Panel>
-        </div>
-    </form>
-</body>
-</html>
+﻿<%@ Page Language="C#" MasterPageFile="~/WebshopMaster.Master" AutoEventWireup="true" CodeBehind="Main.aspx.cs" Inherits="ShopWebFormsClient.Main" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <title>Main</title>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <div>
+        <h2>Welcome to the webshop!</h2>
+    </div>
+</asp:Content>

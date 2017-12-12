@@ -13,15 +13,6 @@ namespace ShopWebFormsClient {
     public partial class Product {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// labelName control.
         /// </summary>
         /// <remarks>
@@ -94,15 +85,6 @@ namespace ShopWebFormsClient {
         protected global::System.Web.UI.WebControls.Button btnAddToCart;
         
         /// <summary>
-        /// GoBackLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink GoBackLink;
-        
-        /// <summary>
         /// AddStatus control.
         /// </summary>
         /// <remarks>
@@ -110,14 +92,5 @@ namespace ShopWebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label AddStatus;
-        
-        /// <summary>
-        /// ViewCart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ViewCart;
     }
 }

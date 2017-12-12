@@ -23,6 +23,12 @@ namespace ShopWebFormsClient
             {
                 OrderDetails.Text = "Your total payment is " + Request.Cookies["carttotal"].Value;
             }
+            else
+            {
+                OrderDetails.Text = "Your cart is empty";
+                CardInput.Visible = false;
+                PlaceOrder.Visible = false;
+            }
         }
 
         protected void PlaceOrder_Click(object sender, EventArgs e)

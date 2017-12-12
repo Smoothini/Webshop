@@ -1,13 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="ShopWebFormsClient.Cart" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+﻿<%@ Page Language="C#" MasterPageFile="~/WebshopMaster.Master"  AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="ShopWebFormsClient.Cart" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <title>Shopping cart</title>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
         <div>
             <h2>Your cart</h2>
             <h4>Items</h4>
@@ -15,8 +10,5 @@
             </asp:Table>
         </div>
         <asp:Button ID="EmptyCart" runat="server" OnClick="EmptyCart_Click" Text="Empty cart" /><br /><br />
-        <asp:HyperLink ID="Checkout" runat="server" NavigateUrl ="~/Checkout.aspx">Checkout cart</asp:HyperLink><br /><br />
-        <asp:HyperLink ID="GoBack" runat="server" NavigateUrl="~/Main.aspx">Go back</asp:HyperLink>
-    </form>
-</body>
-</html>
+
+</asp:Content>

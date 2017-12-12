@@ -27,7 +27,6 @@ namespace ShopController
                 {
                     db.Order_Item.Add(item);
                     i++;
-                    MessageBox.Show(i.ToString());
                 }
                 db.SaveChanges();
                 return true;
