@@ -25,12 +25,12 @@ namespace ShopWebFormsClient
                 newUser.username = UserBox.Text;
                 newUser.pass = PasswordBox.Text;
                 if (userRef.Create(newUser))
-                    GoBack.Text = "Succesfully registered, go back";
+                    RegStatus.Text = "Succesfully registered";
                 else
-                    GoBack.Text = "That username already exists";
+                    RegStatus.Text = "That username already exists";
             }
             else
-                GoBack.Text = "Please fill in all details";
+                RegStatus.Text = "Please fill in all details";
         }
     }
 }

@@ -17,7 +17,7 @@
                 <li><a href="Products.aspx">Products</a></li>
                 <li><a href="Cart.aspx">Shopping cart</a></li>
                 <li><a href="Checkout.aspx">Checkout</a></li>
-                <li><a href="#">My account</a></li>
+                <li><a href="MyAccount">My account</a></li>
             </ul><br />
             <asp:ContentPlaceHolder ID="body" runat="server">
             </asp:ContentPlaceHolder>

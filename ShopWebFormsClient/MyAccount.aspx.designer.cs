@@ -10,33 +10,24 @@
 namespace ShopWebFormsClient {
     
     
-    public partial class Main {
+    public partial class MyAccount {
         
         /// <summary>
-        /// UserStatus control.
+        /// LogoutButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal UserStatus;
+        protected global::System.Web.UI.WebControls.Button LogoutButton;
         
         /// <summary>
-        /// LoginLink control.
+        /// LogoutStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink LoginLink;
-        
-        /// <summary>
-        /// RegisterLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterLink;
+        protected global::System.Web.UI.WebControls.Literal LogoutStatus;
     }
 }

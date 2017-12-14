@@ -17,16 +17,25 @@ namespace ShopController
             db = new ShopModel.ShopModel();
         }
 
+        public bool IsPossible(Order t)
+        {
+            bool isPossible = true;
+            foreach (Order_Item item in t.Order_Item)
+                if (item.Quantity > db.Products.SingleOrDefault(x => x.Product_Id == item.Product_Id).Stock)
+                    isPossible = false;
+            return isPossible;
+        }
+
         public bool Create(Order t)
         {
             int i = 0;
-            if (t != null)
+            if (t != null && IsPossible(t))
             {
                 db.Orders.Add(t);
                 foreach (Order_Item item in t.Order_Item)
                 {
                     db.Order_Item.Add(item);
-                    i++;
+                    db.Products.SingleOrDefault(x => x.Product_Id == item.Product_Id).Stock -= item.Quantity;
                 }
                 db.SaveChanges();
                 return true;
@@ -41,7 +50,7 @@ namespace ShopController
 
         public List<Order> ReadAll()
         {
-            throw new NotImplementedException();
+            return db.Orders.ToList<Order>();
         }
         public bool Update(Order t)
         {

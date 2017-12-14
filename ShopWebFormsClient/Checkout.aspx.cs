@@ -43,7 +43,7 @@ namespace ShopWebFormsClient
                         OrderStatus.Text = "Payment made and order succesfully placed ";
                     }
                     else
-                        OrderStatus.Text = "Error, cart is empty";
+                        OrderStatus.Text = "Error, some items unavailable";
                 }
                 else
                     OrderStatus.Text = "Error, please input a valid credit card";

@@ -13,13 +13,13 @@ namespace ShopWebFormsClient {
     public partial class Login {
         
         /// <summary>
-        /// form1 control.
+        /// UserLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label UserLabel;
         
         /// <summary>
         /// UserBox control.
@@ -29,6 +29,15 @@ namespace ShopWebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox UserBox;
+        
+        /// <summary>
+        /// PassLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PassLabel;
         
         /// <summary>
         /// PasswordBox control.
@@ -56,15 +65,6 @@ namespace ShopWebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LoginStatus;
-        
-        /// <summary>
-        /// GoBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink GoBack;
         
         /// <summary>
         /// Logout control.

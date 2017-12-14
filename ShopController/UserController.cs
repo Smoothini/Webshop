@@ -60,7 +60,7 @@ namespace ShopController
 
         public bool Create(User t)
         {
-            if (t != null)
+            if (t != null && db.Users.SingleOrDefault(x => x.Username == t.Username)==null)
             {
                 t.Salt = SaltGenerator(5);
                 t.Password = Hasher(t.Password + t.Salt);
@@ -99,7 +99,8 @@ namespace ShopController
             t = db.Users.SingleOrDefault(x => x.User_ID == t.User_ID);
             if (t != null)
             {
-                db.User_Information.Remove(t.User_Information);
+                if(t.User_Information != null)
+                    db.User_Information.Remove(t.User_Information);
                 db.Users.Remove(t);
                 db.SaveChanges();
                 return true;

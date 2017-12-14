@@ -17,12 +17,16 @@ namespace ShopWebFormsClient
             user = new UserReference.TUser();
             if(Session["user"] != null)
             {
+                UserLabel.Visible = false;
                 UserBox.Visible = false;
+                PassLabel.Visible = false;
                 PasswordBox.Visible = false;
                 LoginButton.Visible = false;
                 LoginStatus.Text = "You are already logged in";
                 Logout.Visible = true;
             }
+            else
+            { }
                 
         }
 
@@ -34,7 +38,6 @@ namespace ShopWebFormsClient
                 {
                     Session["user"] = UserBox.Text;
                     LoginStatus.Text = "Successfully logged in";
-                    Response.Cookies["user"]["username"] = UserBox.Text;
                     Response.Redirect("Main.aspx");
                 }
                 else

@@ -13,15 +13,6 @@ namespace ShopWebFormsClient {
     public partial class Register {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// Table1 control.
         /// </summary>
         /// <remarks>
@@ -58,12 +49,12 @@ namespace ShopWebFormsClient {
         protected global::System.Web.UI.WebControls.Button RegisterButton;
         
         /// <summary>
-        /// GoBack control.
+        /// RegStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink GoBack;
+        protected global::System.Web.UI.WebControls.Literal RegStatus;
     }
 }

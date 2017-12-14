@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.isDelivered = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.changeQtyButton = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dateLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             this.markDeliveredButton = new System.Windows.Forms.Button();
             this.removeItemButton = new System.Windows.Forms.Button();
             this.removeOrderButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityValue)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -99,6 +100,7 @@
             this.orderItemsBox.Name = "orderItemsBox";
             this.orderItemsBox.Size = new System.Drawing.Size(104, 186);
             this.orderItemsBox.TabIndex = 1;
+            this.orderItemsBox.SelectedIndexChanged += new System.EventHandler(this.orderItemsBox_SelectedIndexChanged);
             // 
             // ordersBox
             // 
@@ -107,6 +109,7 @@
             this.ordersBox.Name = "ordersBox";
             this.ordersBox.Size = new System.Drawing.Size(104, 186);
             this.ordersBox.TabIndex = 0;
+            this.ordersBox.SelectedIndexChanged += new System.EventHandler(this.ordersBox_SelectedIndexChanged);
             // 
             // quantityValue
             // 
@@ -137,6 +140,7 @@
             this.productsBox.Name = "productsBox";
             this.productsBox.Size = new System.Drawing.Size(188, 134);
             this.productsBox.TabIndex = 3;
+            this.productsBox.SelectedIndexChanged += new System.EventHandler(this.productsBox_SelectedIndexChanged);
             // 
             // addToOrderButton
             // 
@@ -146,6 +150,7 @@
             this.addToOrderButton.TabIndex = 4;
             this.addToOrderButton.Text = "Add to order";
             this.addToOrderButton.UseVisualStyleBackColor = true;
+            this.addToOrderButton.Click += new System.EventHandler(this.addToOrderButton_Click);
             // 
             // groupBox2
             // 
@@ -182,7 +187,7 @@
             // isDelivered
             // 
             this.isDelivered.AutoSize = true;
-            this.isDelivered.Location = new System.Drawing.Point(116, 141);
+            this.isDelivered.Location = new System.Drawing.Point(116, 114);
             this.isDelivered.Name = "isDelivered";
             this.isDelivered.Size = new System.Drawing.Size(71, 17);
             this.isDelivered.TabIndex = 6;
@@ -191,7 +196,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.refreshButton);
+            this.groupBox3.Controls.Add(this.changeQtyButton);
             this.groupBox3.Controls.Add(this.numericUpDown1);
             this.groupBox3.Controls.Add(this.dateLabel);
             this.groupBox3.Controls.Add(this.label11);
@@ -212,18 +218,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Other actions";
             // 
-            // button1
+            // changeQtyButton
             // 
-            this.button1.Location = new System.Drawing.Point(6, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Change quantity";
-            this.button1.UseVisualStyleBackColor = true;
+            this.changeQtyButton.Location = new System.Drawing.Point(6, 82);
+            this.changeQtyButton.Name = "changeQtyButton";
+            this.changeQtyButton.Size = new System.Drawing.Size(104, 23);
+            this.changeQtyButton.TabIndex = 17;
+            this.changeQtyButton.Text = "Change quantity";
+            this.changeQtyButton.UseVisualStyleBackColor = true;
+            this.changeQtyButton.Click += new System.EventHandler(this.changeQtyButton_Click);
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(116, 103);
+            this.numericUpDown1.Location = new System.Drawing.Point(116, 84);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -317,12 +324,13 @@
             // 
             // markDeliveredButton
             // 
-            this.markDeliveredButton.Location = new System.Drawing.Point(6, 137);
+            this.markDeliveredButton.Location = new System.Drawing.Point(6, 111);
             this.markDeliveredButton.Name = "markDeliveredButton";
             this.markDeliveredButton.Size = new System.Drawing.Size(104, 23);
             this.markDeliveredButton.TabIndex = 7;
             this.markDeliveredButton.Text = "Mark delivered";
             this.markDeliveredButton.UseVisualStyleBackColor = true;
+            this.markDeliveredButton.Click += new System.EventHandler(this.markDeliveredButton_Click);
             // 
             // removeItemButton
             // 
@@ -332,6 +340,7 @@
             this.removeItemButton.TabIndex = 1;
             this.removeItemButton.Text = "Remove item";
             this.removeItemButton.UseVisualStyleBackColor = true;
+            this.removeItemButton.Click += new System.EventHandler(this.removeItemButton_Click);
             // 
             // removeOrderButton
             // 
@@ -341,6 +350,17 @@
             this.removeOrderButton.TabIndex = 0;
             this.removeOrderButton.Text = "Remove order";
             this.removeOrderButton.UseVisualStyleBackColor = true;
+            this.removeOrderButton.Click += new System.EventHandler(this.removeOrderButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(6, 137);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(104, 23);
+            this.refreshButton.TabIndex = 18;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // OrderWindow
             // 
@@ -352,6 +372,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "OrderWindow";
             this.Text = "OrderWindow";
+            this.Load += new System.EventHandler(this.OrderWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityValue)).EndInit();
@@ -389,7 +410,8 @@
         private System.Windows.Forms.Button markDeliveredButton;
         private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.Button removeOrderButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button changeQtyButton;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

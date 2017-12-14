@@ -7,13 +7,13 @@ namespace ShopController
 {
     public class CategoryController : IController<Category>
     {
-        ShopModel.ShopModel model;
+        ShopModel.ShopModel db;
         Category category;
         List<Category> categories;
 
         public CategoryController()
         {
-            model = new ShopModel.ShopModel();
+            db = new ShopModel.ShopModel();
             category = new Category();
             categories = new List<Category>();
         }
@@ -22,8 +22,8 @@ namespace ShopController
         {
             if (t != null)
             {
-                model.Categories.Add(t);
-                model.SaveChanges();
+                db.Categories.Add(t);
+                db.SaveChanges();
                 return true;
             }
             else
@@ -32,12 +32,12 @@ namespace ShopController
 
         public Category Read(int id)
         {
-            return model.Categories.SingleOrDefault(x => x.Category_Id == id);
+            return db.Categories.SingleOrDefault(x => x.Category_Id == id);
         }
 
         public List<Category> ReadAll()
         {
-            return model.Categories.ToList<Category>();
+            return db.Categories.ToList<Category>();
         }
         public bool Update(Category t)
         {
@@ -45,10 +45,10 @@ namespace ShopController
             {
                 if (t.Timestamp == GetTimestamp(t.Category_Id))
                 {
-                    category = model.Categories.SingleOrDefault(x => x.Category_Id == t.Category_Id);
+                    category = db.Categories.SingleOrDefault(x => x.Category_Id == t.Category_Id);
                     category.Name = t.Name;
                     category.Timestamp++;
-                    model.SaveChanges();
+                    db.SaveChanges();
                     return true;
                 }
                 else
@@ -64,9 +64,9 @@ namespace ShopController
             {
                 if (t.Timestamp == GetTimestamp(t.Category_Id))
                 {
-                    t = model.Categories.SingleOrDefault(x => x.Category_Id == t.Category_Id);
-                    model.Categories.Remove(t);
-                    model.SaveChanges();
+                    t = db.Categories.SingleOrDefault(x => x.Category_Id == t.Category_Id);
+                    db.Categories.Remove(t);
+                    db.SaveChanges();
                     return true;
                 }
                 else
@@ -78,7 +78,7 @@ namespace ShopController
 
         public int GetTimestamp(int id)
         {
-            category = model.Categories.SingleOrDefault(x => x.Category_Id == id);
+            category = db.Categories.SingleOrDefault(x => x.Category_Id == id);
             if (category != null)
                 return category.Timestamp;
             else
