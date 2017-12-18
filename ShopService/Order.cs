@@ -42,9 +42,57 @@ namespace ShopService
             return order;
         }
 
+        TOrder ModelToTransporter(ShopModel.Order order)
+        {
+            TOrder torder = new TOrder{
+                orderid = order.Order_Id,
+                date = order.Date,
+                price = order.Price,
+                userid = order.User_Id,
+                isDelivered = order.IsDelivered
+            };
+            foreach(ShopModel.Order_Item item in order.Order_Item)
+            {
+                TOrderItem titem = new TOrderItem
+                {
+                    itemid = item.Item_Id,
+                    productid = item.Product_Id,
+                    quantity = item.Quantity,
+                    price = item.Price
+                };
+                torder.items.Add(titem);
+            }
+            return torder;
+        }
+
         public bool Create(TOrder order)
         {
             return controller.Create(TransporterToModel(order));
+        }
+
+        public TOrder Read(int id)
+        {
+            return ModelToTransporter(controller.Read(id));
+        }
+
+        public List<TOrder> ReadAll()
+        {
+            List<TOrder> tlist = new List<TOrder>();
+            List<ShopModel.Order> list = new List<ShopModel.Order>();
+            list = controller.ReadAll();
+            foreach (ShopModel.Order order in list)
+                tlist.Add(ModelToTransporter(order));
+            return tlist;
+        }
+
+        public bool Update(TOrder order)
+        {
+            return controller.Update(TransporterToModel(order));
+        }
+
+        public bool Delete(TOrder order)
+        {
+            return controller.Delete(TransporterToModel(order));
         }
     }
 }

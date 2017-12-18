@@ -14,5 +14,18 @@ namespace ShopService
     {
         [OperationContract]
         bool Create(TOrder order);
+
+        [OperationContract]
+        TOrder Read(int id);
+
+        [OperationContract]
+        List<TOrder> ReadAll ();
+
+        [OperationContract]
+        bool Update(TOrder order);
+
+        [OperationContract]
+        bool Delete(TOrder order);
+
     }
 }

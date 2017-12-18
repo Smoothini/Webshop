@@ -32,5 +32,7 @@ namespace ShopModel
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Item> Order_Item { get; set; }
+
+        public int Timestamp;
     }
 }

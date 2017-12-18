@@ -88,7 +88,7 @@ namespace ShopController
 
         public bool Update(User t)
         {
-            throw new NotImplementedException("Will implement soon I swer");
+            throw new NotImplementedException("Will implement soon I swear");
             //use t.User_Information, call that
             //and modify it here maybe then
             //save the changes to db

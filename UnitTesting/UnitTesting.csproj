@@ -107,6 +107,10 @@
       <Project>{e8ae30e6-e896-4c35-b9d8-295b10d74757}</Project>
       <Name>ShopController</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShopModel\ShopModel.csproj">
+      <Project>{097a7ab7-ea1e-4bc6-b62a-0fcb97c18868}</Project>
+      <Name>ShopModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShopService\ShopService.csproj">
       <Project>{33213cdb-06c2-43a8-9c78-e4172b36e61b}</Project>
       <Name>ShopService</Name>

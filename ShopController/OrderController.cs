@@ -45,7 +45,7 @@ namespace ShopController
         }
         public Order Read(int id)
         {
-            throw new NotImplementedException();
+            return db.Orders.FirstOrDefault(x => x.Order_Id == id);
         }
 
         public List<Order> ReadAll()
@@ -54,17 +54,17 @@ namespace ShopController
         }
         public bool Update(Order t)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Not needed now");
         }
 
         public bool Delete(Order t)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Not needed now");
         }
 
         public int GetTimestamp(int id)
         {
-            throw new NotImplementedException();
+            return db.Orders.FirstOrDefault(x => x.Order_Id == id).Timestamp;
         }
 
 
