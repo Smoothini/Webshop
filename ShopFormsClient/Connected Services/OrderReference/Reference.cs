@@ -20,6 +20,36 @@ namespace ShopFormsClient.OrderReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Create", ReplyAction="http://tempuri.org/IOrder/CreateResponse")]
         System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TOrder order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Read", ReplyAction="http://tempuri.org/IOrder/ReadResponse")]
+        ShopService.Transporter.TOrder Read(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Read", ReplyAction="http://tempuri.org/IOrder/ReadResponse")]
+        System.Threading.Tasks.Task<ShopService.Transporter.TOrder> ReadAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ReadAll", ReplyAction="http://tempuri.org/IOrder/ReadAllResponse")]
+        ShopService.Transporter.TOrder[] ReadAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/ReadAll", ReplyAction="http://tempuri.org/IOrder/ReadAllResponse")]
+        System.Threading.Tasks.Task<ShopService.Transporter.TOrder[]> ReadAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Update", ReplyAction="http://tempuri.org/IOrder/UpdateResponse")]
+        bool Update(ShopService.Transporter.TOrder order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Update", ReplyAction="http://tempuri.org/IOrder/UpdateResponse")]
+        System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TOrder order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Delete", ReplyAction="http://tempuri.org/IOrder/DeleteResponse")]
+        bool Delete(ShopService.Transporter.TOrder order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/Delete", ReplyAction="http://tempuri.org/IOrder/DeleteResponse")]
+        System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TOrder order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/MarkDelivery", ReplyAction="http://tempuri.org/IOrder/MarkDeliveryResponse")]
+        bool MarkDelivery(ShopService.Transporter.TOrder order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/MarkDelivery", ReplyAction="http://tempuri.org/IOrder/MarkDeliveryResponse")]
+        System.Threading.Tasks.Task<bool> MarkDeliveryAsync(ShopService.Transporter.TOrder order);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +85,46 @@ namespace ShopFormsClient.OrderReference {
         
         public System.Threading.Tasks.Task<bool> CreateAsync(ShopService.Transporter.TOrder order) {
             return base.Channel.CreateAsync(order);
+        }
+        
+        public ShopService.Transporter.TOrder Read(int id) {
+            return base.Channel.Read(id);
+        }
+        
+        public System.Threading.Tasks.Task<ShopService.Transporter.TOrder> ReadAsync(int id) {
+            return base.Channel.ReadAsync(id);
+        }
+        
+        public ShopService.Transporter.TOrder[] ReadAll() {
+            return base.Channel.ReadAll();
+        }
+        
+        public System.Threading.Tasks.Task<ShopService.Transporter.TOrder[]> ReadAllAsync() {
+            return base.Channel.ReadAllAsync();
+        }
+        
+        public bool Update(ShopService.Transporter.TOrder order) {
+            return base.Channel.Update(order);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateAsync(ShopService.Transporter.TOrder order) {
+            return base.Channel.UpdateAsync(order);
+        }
+        
+        public bool Delete(ShopService.Transporter.TOrder order) {
+            return base.Channel.Delete(order);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteAsync(ShopService.Transporter.TOrder order) {
+            return base.Channel.DeleteAsync(order);
+        }
+        
+        public bool MarkDelivery(ShopService.Transporter.TOrder order) {
+            return base.Channel.MarkDelivery(order);
+        }
+        
+        public System.Threading.Tasks.Task<bool> MarkDeliveryAsync(ShopService.Transporter.TOrder order) {
+            return base.Channel.MarkDeliveryAsync(order);
         }
     }
 }

@@ -27,5 +27,8 @@ namespace ShopService
         [OperationContract]
         bool Delete(TOrder order);
 
+        [OperationContract]
+        bool MarkDelivery(TOrder order);
+
     }
 }

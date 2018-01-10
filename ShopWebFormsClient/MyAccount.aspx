@@ -3,6 +3,8 @@
     <title>My page</title>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="body" runat="server">
+    <br /><br />
+    <asp:Literal ID ="ProfileWelcome" Text="" runat="server"></asp:Literal>
     <asp:Button ID="LogoutButton" Text="Logout" runat="server" OnClick="LogoutButton_Click"/>
     <asp:Literal ID="LogoutStatus" Text="" runat="server"></asp:Literal>
 </asp:Content>

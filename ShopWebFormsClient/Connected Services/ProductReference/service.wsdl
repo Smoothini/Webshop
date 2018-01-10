@@ -43,6 +43,12 @@
   <wsdl:message name="IProduct_Restock_OutputMessage">
     <wsdl:part name="parameters" element="tns:RestockResponse" />
   </wsdl:message>
+  <wsdl:message name="IProduct_StockAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_StockAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockAvailableResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProduct">
     <wsdl:operation name="Create">
       <wsdl:input wsaw:Action="http://tempuri.org/IProduct/Create" message="tns:IProduct_Create_InputMessage" />
@@ -67,6 +73,10 @@
     <wsdl:operation name="Restock">
       <wsdl:input wsaw:Action="http://tempuri.org/IProduct/Restock" message="tns:IProduct_Restock_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProduct/RestockResponse" message="tns:IProduct_Restock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/StockAvailable" message="tns:IProduct_StockAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/StockAvailableResponse" message="tns:IProduct_StockAvailable_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProduct" type="tns:IProduct">
@@ -118,6 +128,15 @@
     </wsdl:operation>
     <wsdl:operation name="Restock">
       <soap:operation soapAction="http://tempuri.org/IProduct/Restock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StockAvailable">
+      <soap:operation soapAction="http://tempuri.org/IProduct/StockAvailable" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

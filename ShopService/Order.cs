@@ -25,8 +25,9 @@ namespace ShopService
                 Order_Id = torder.orderid,
                 User_Id = torder.userid,
                 Date = torder.date,
-                IsDelivered = false,
-                Price = torder.price
+                IsDelivered = torder.isDelivered,
+                Price = torder.price,
+                Timestamp = torder.timestamp
             };
             foreach(TOrderItem titem in torder.items)
             {
@@ -49,7 +50,8 @@ namespace ShopService
                 date = order.Date,
                 price = order.Price,
                 userid = order.User_Id,
-                isDelivered = order.IsDelivered
+                isDelivered = order.IsDelivered,
+                timestamp = order.Timestamp
             };
             foreach(ShopModel.Order_Item item in order.Order_Item)
             {
@@ -93,6 +95,11 @@ namespace ShopService
         public bool Delete(TOrder order)
         {
             return controller.Delete(TransporterToModel(order));
+        }
+
+        public bool MarkDelivery(TOrder order)
+        {
+            return controller.MarkDelivery(TransporterToModel(order));
         }
     }
 }

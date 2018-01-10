@@ -9,6 +9,6 @@
             <asp:Literal ID="OrderDetails" runat="server" Text=""></asp:Literal><br /><br />
             <asp:TextBox ID="CardInput" runat="server"></asp:TextBox><br />
             <asp:Button ID="PlaceOrder" runat="server" Text="Pay and place order" OnClick="PlaceOrder_Click" /><br /><br />
-            <asp:Label ID="OrderStatus" runat="server" Text=""></asp:Label><br /> <br /><br />
+            <asp:Literal ID="OrderStatus" runat="server" Text=""></asp:Literal><br /> <br /><br />
         </div>
 </asp:Content>

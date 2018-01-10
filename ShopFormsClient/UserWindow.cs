@@ -8,6 +8,7 @@ namespace ShopFormsClient
     public partial class UserWindow : Form
     {
         UserReference.IUser userRef;
+        TUser selected_user;
         public UserWindow()
         {
             InitializeComponent();
@@ -15,12 +16,13 @@ namespace ShopFormsClient
         private void UserWindow_Load(object sender, EventArgs e)
         {
             userRef = new UserReference.UserClient();
+            selected_user = new TUser();
             refreshButton.PerformClick();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (userRef.Delete((TUser)usersBox.SelectedItem))
+            if (userRef.Delete(selected_user))
                 messageDelete.Text = "User succesfully removed";
             else
                 messageDelete.Text = "Error removing the user";
@@ -37,11 +39,11 @@ namespace ShopFormsClient
         {
             if(usersBox.SelectedItem != null)
             {
-                TUser user = (TUser)usersBox.SelectedItem;
-                nameBox.Text = user.name;
-                emailBox.Text = user.email;
-                addressBox.Text = user.address;
-                phoneBox.Text = user.phone;
+                selected_user = (TUser)usersBox.SelectedItem;
+                nameBox.Text = selected_user.name;
+                emailBox.Text = selected_user.email;
+                addressBox.Text = selected_user.address;
+                phoneBox.Text = selected_user.phone;
             }
         }
 

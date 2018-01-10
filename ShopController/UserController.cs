@@ -96,10 +96,10 @@ namespace ShopController
 
         public bool Delete(User t)
         {
-            t = db.Users.SingleOrDefault(x => x.User_ID == t.User_ID);
             if (t != null)
             {
-                if(t.User_Information != null)
+                t = db.Users.SingleOrDefault(x => x.User_ID == t.User_ID);
+                if(t.User_Information!=null)
                     db.User_Information.Remove(t.User_Information);
                 db.Users.Remove(t);
                 db.SaveChanges();

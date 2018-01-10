@@ -32,6 +32,7 @@
             this.nameBox = new System.Windows.Forms.TextBox();
             this.emailBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.messageDelete = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,8 +48,6 @@
             this.costLabel = new System.Windows.Forms.Label();
             this.numberOfItemsLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.itemsBox = new System.Windows.Forms.ListBox();
-            this.messageDelete = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -99,6 +98,14 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "View Users";
+            // 
+            // messageDelete
+            // 
+            this.messageDelete.AutoSize = true;
+            this.messageDelete.Location = new System.Drawing.Point(163, 167);
+            this.messageDelete.Name = "messageDelete";
+            this.messageDelete.Size = new System.Drawing.Size(0, 13);
+            this.messageDelete.TabIndex = 5;
             // 
             // label4
             // 
@@ -197,7 +204,6 @@
             this.groupBox3.Controls.Add(this.costLabel);
             this.groupBox3.Controls.Add(this.numberOfItemsLabel);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.itemsBox);
             this.groupBox3.Location = new System.Drawing.Point(151, 214);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(240, 159);
@@ -208,7 +214,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(132, 84);
+            this.label7.Location = new System.Drawing.Point(6, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 2;
@@ -217,7 +223,7 @@
             // costLabel
             // 
             this.costLabel.AutoSize = true;
-            this.costLabel.Location = new System.Drawing.Point(135, 97);
+            this.costLabel.Location = new System.Drawing.Point(9, 97);
             this.costLabel.Name = "costLabel";
             this.costLabel.Size = new System.Drawing.Size(35, 13);
             this.costLabel.TabIndex = 2;
@@ -226,7 +232,7 @@
             // numberOfItemsLabel
             // 
             this.numberOfItemsLabel.AutoSize = true;
-            this.numberOfItemsLabel.Location = new System.Drawing.Point(135, 36);
+            this.numberOfItemsLabel.Location = new System.Drawing.Point(9, 36);
             this.numberOfItemsLabel.Name = "numberOfItemsLabel";
             this.numberOfItemsLabel.Size = new System.Drawing.Size(35, 13);
             this.numberOfItemsLabel.TabIndex = 2;
@@ -235,28 +241,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(132, 19);
+            this.label5.Location = new System.Drawing.Point(6, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Number of items:";
-            // 
-            // itemsBox
-            // 
-            this.itemsBox.FormattingEnabled = true;
-            this.itemsBox.Location = new System.Drawing.Point(6, 19);
-            this.itemsBox.Name = "itemsBox";
-            this.itemsBox.Size = new System.Drawing.Size(120, 134);
-            this.itemsBox.TabIndex = 0;
-            this.itemsBox.SelectedIndexChanged += new System.EventHandler(this.itemsBox_SelectedIndexChanged);
-            // 
-            // messageDelete
-            // 
-            this.messageDelete.AutoSize = true;
-            this.messageDelete.Location = new System.Drawing.Point(163, 167);
-            this.messageDelete.Name = "messageDelete";
-            this.messageDelete.Size = new System.Drawing.Size(0, 13);
-            this.messageDelete.TabIndex = 5;
             // 
             // UserWindow
             // 
@@ -297,7 +286,6 @@
         private System.Windows.Forms.Label costLabel;
         private System.Windows.Forms.Label numberOfItemsLabel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox itemsBox;
         private System.Windows.Forms.TextBox addressBox;
         private System.Windows.Forms.TextBox phoneBox;
         private System.Windows.Forms.Label messageDelete;

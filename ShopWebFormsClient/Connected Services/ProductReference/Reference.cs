@@ -193,6 +193,12 @@ namespace ShopWebFormsClient.ProductReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/Restock", ReplyAction="http://tempuri.org/IProduct/RestockResponse")]
         System.Threading.Tasks.Task<bool> RestockAsync(ShopWebFormsClient.ProductReference.TProduct product, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/StockAvailable", ReplyAction="http://tempuri.org/IProduct/StockAvailableResponse")]
+        int StockAvailable(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/StockAvailable", ReplyAction="http://tempuri.org/IProduct/StockAvailableResponse")]
+        System.Threading.Tasks.Task<int> StockAvailableAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -268,6 +274,14 @@ namespace ShopWebFormsClient.ProductReference {
         
         public System.Threading.Tasks.Task<bool> RestockAsync(ShopWebFormsClient.ProductReference.TProduct product, int quantity) {
             return base.Channel.RestockAsync(product, quantity);
+        }
+        
+        public int StockAvailable(int id) {
+            return base.Channel.StockAvailable(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> StockAvailableAsync(int id) {
+            return base.Channel.StockAvailableAsync(id);
         }
     }
 }

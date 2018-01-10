@@ -10,11 +10,13 @@ namespace ShopWebFormsClient
     public partial class Checkout : System.Web.UI.Page
     {
         OrderReference.IOrder orderRef;
+        ProductReference.IProduct prodRef;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadOrderDetails();
             orderRef = new OrderReference.OrderClient();
+            prodRef = new ProductReference.ProductClient();
         }
 
         public void LoadOrderDetails()
@@ -37,13 +39,13 @@ namespace ShopWebFormsClient
             {
                 if (LuhnChecker(CardInput.Text))
                 {
-                    if (orderRef.Create(CartToOrder()))
+                    if (CreateAnOrder())
                     {
                         EmptyCart();
                         OrderStatus.Text = "Payment made and order succesfully placed ";
                     }
-                    else
-                        OrderStatus.Text = "Error, some items unavailable";
+                    else;
+                        //OrderStatus.Text = "Error, some items unavailable and removed";
                 }
                 else
                     OrderStatus.Text = "Error, please input a valid credit card";
@@ -76,6 +78,57 @@ namespace ShopWebFormsClient
         public bool NotEmptyCart()
         {
             return (Request.Cookies["shoppingcart"] != null);
+        }
+
+        public bool CreateAnOrder()
+        {
+            bool isCreated = true;
+            List<int> productsToRemove = new List<int>();
+            string newCart = "";
+            decimal newTotal = 0;
+            string lcookies = Request.Cookies["shoppingcart"].Value;
+            string[] cookies = lcookies.Split('|');
+            foreach (string cookie in cookies)
+            {
+                string[] chip = cookie.Split(',');
+                //chip[0] product id, chip[2] quantity
+                if (int.Parse(chip[2]) > prodRef.StockAvailable(int.Parse(chip[0])))
+                    productsToRemove.Add(int.Parse(chip[0]));
+                else
+                {
+                    if (newCart == "")
+                        newCart = chip[0] + "," + chip[1] + "," + chip[2] + "," + chip[3];
+                    else
+                        newCart += "|" + chip[0] + "," + chip[1] + "," + chip[2] + "," + chip[3];
+                    newTotal += decimal.Parse(chip[2]) * decimal.Parse(chip[3]);
+                }
+            }
+            if (productsToRemove.Count != 0)
+            {
+                isCreated = false;
+                OrderStatus.Text = "The following items were removed from your cart because there isn't enough stock: ";
+                foreach (int id in productsToRemove)
+                    OrderStatus.Text += "</br> - " +  prodRef.Read(id).name + ", " + prodRef.Read(id).stock + " items left in stock";
+                if (newTotal == 0)
+                {
+                    HttpCookie cookie = new HttpCookie("shoppingcart");
+                    cookie.Expires = DateTime.Now.AddDays(-1d);
+                    Response.Cookies.Add(cookie);
+                    HttpCookie total = new HttpCookie("carttotal");
+                    total.Expires = DateTime.Now.AddDays(-1d);
+                    Response.Cookies.Add(total);
+                    OrderDetails.Text = "Your cart is now empty";
+                }
+                else
+                {
+                    Response.Cookies["shoppingcart"].Value = newCart;
+                    Response.Cookies["carttotal"].Value = newTotal.ToString();
+                    OrderDetails.Text = "Your new total after removing items is " + newTotal.ToString();
+                }
+            }
+            else
+                orderRef.Create(CartToOrder());
+            return isCreated;
         }
 
         public OrderReference.TOrder CartToOrder()

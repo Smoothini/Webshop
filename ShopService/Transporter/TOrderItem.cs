@@ -20,5 +20,11 @@ namespace ShopService.Transporter
         public int quantity;
         [DataMember]
         public decimal price;
+
+        public override string ToString()
+        {
+            return itemid.ToString();
+        }
+
     }
 }

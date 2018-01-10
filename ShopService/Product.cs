@@ -77,5 +77,10 @@ namespace ShopService
         {
             return controller.Restock(TransporterToModel(product), quantity);
         }
+
+        public int StockAvailable(int id)
+        {
+            return controller.Read(id).Stock;
+        }
     }
 }

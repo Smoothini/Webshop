@@ -59,7 +59,33 @@ namespace ShopController
 
         public bool Delete(Order t)
         {
-            throw new NotImplementedException("Not needed now");
+            if (t != null)
+            {
+                t = db.Orders.FirstOrDefault(x => x.Order_Id == t.Order_Id);
+                db.Order_Item.RemoveRange(t.Order_Item);
+                db.Orders.Remove(t);
+                db.SaveChanges();
+                return true;
+            }
+            else return false;
+        }
+
+        public bool MarkDelivery(Order t)
+        {
+            if(t!=null && t.Timestamp == GetTimestamp(t.Order_Id))
+            {
+                t = db.Orders.FirstOrDefault(x => x.Order_Id == t.Order_Id);
+                if (t.IsDelivered)
+                    t.IsDelivered = false;
+                else
+                    t.IsDelivered = true;
+                t.Timestamp++;
+
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
         }
 
         public int GetTimestamp(int id)

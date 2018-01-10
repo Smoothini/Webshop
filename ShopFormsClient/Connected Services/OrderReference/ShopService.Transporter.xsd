@@ -7,6 +7,7 @@
       <xs:element minOccurs="0" name="items" nillable="true" type="tns:ArrayOfTOrderItem" />
       <xs:element minOccurs="0" name="orderid" type="xs:int" />
       <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="timestamp" type="xs:int" />
       <xs:element minOccurs="0" name="userid" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -27,4 +28,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TOrderItem" nillable="true" type="tns:TOrderItem" />
+  <xs:complexType name="ArrayOfTOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TOrder" nillable="true" type="tns:TOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTOrder" nillable="true" type="tns:ArrayOfTOrder" />
 </xs:schema>

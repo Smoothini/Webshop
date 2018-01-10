@@ -36,6 +36,7 @@ namespace ShopService
         {
             ShopModel.User user = new ShopModel.User
             {
+                User_ID = tuser.userid,
                 Username = tuser.username,
                 Password = tuser.pass
             };

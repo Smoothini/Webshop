@@ -29,5 +29,7 @@ namespace ShopService
         [OperationContract]
         bool Restock(TProduct product, int quantity);
 
+        [OperationContract]
+        int StockAvailable(int id);
     }
 }

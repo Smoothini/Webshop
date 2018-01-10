@@ -178,6 +178,7 @@
     </None>
     <None Include="Properties\DataSources\ShopModel.Category.datasource" />
     <None Include="Properties\DataSources\ShopService.Transporter.TCategory.datasource" />
+    <None Include="Properties\DataSources\ShopService.Transporter.TOrder.datasource" />
     <None Include="Properties\DataSources\ShopService.Transporter.TProduct.datasource" />
     <None Include="Properties\DataSources\ShopService.Transporter.TUser.datasource" />
     <None Include="Properties\Settings.settings">

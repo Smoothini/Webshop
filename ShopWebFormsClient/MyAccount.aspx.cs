@@ -11,7 +11,8 @@ namespace ShopWebFormsClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null)
+                ProfileWelcome.Text = "Welcome to your profile " +  Session["user"].ToString() + "<br />";
         }
         
 
@@ -20,6 +21,7 @@ namespace ShopWebFormsClient
 
             if (Session["user"] != null)
             {
+                ProfileWelcome.Text = "See you next time " + Session["user"].ToString() + "<br />";
                 Session.Remove("user");
                 LogoutStatus.Text = "Successfully logged out";
             }

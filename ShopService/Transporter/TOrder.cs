@@ -22,9 +22,16 @@ namespace ShopService.Transporter
         public decimal price;
         [DataMember]
         public List<TOrderItem> items;
+        [DataMember]
+        public int timestamp;
         public TOrder()
         {
             items = new List<TOrderItem>();
+        }
+
+        public override string ToString()
+        {
+            return orderid.ToString();
         }
     }
 }

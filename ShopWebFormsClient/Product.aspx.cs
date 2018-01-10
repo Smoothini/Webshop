@@ -27,6 +27,13 @@ namespace ShopWebFormsClient
                 labelDescription.Text = prod.description;
                 labelPrice.Text = prod.price.ToString();
                 labelId.Text = prod.id.ToString();
+                int stock = prodRef.StockAvailable(int.Parse(Request.QueryString["id"]));
+                if (stock == 0)
+                    labelAvailable.Text = "Unavailable at the moment";
+                else if(stock < 10)
+                {
+                    labelAvailable.Text = "Low stock, " + stock.ToString() + " pieces left";
+                }
             }
             else
             {
@@ -36,20 +43,25 @@ namespace ShopWebFormsClient
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            UpdateCartCookie2(Request.QueryString["id"], labelName.Text, int.Parse(quantitySelect.SelectedValue), labelPrice.Text);
-            AddStatus.Text = "Added " + quantitySelect.Text + " items to cart";
+            if (int.Parse(quantitySelect.SelectedValue) <= prodRef.StockAvailable(int.Parse(Request.QueryString["id"])))
+            {
+                UpdateCartCookie(Request.QueryString["id"], labelName.Text, int.Parse(quantitySelect.SelectedValue), labelPrice.Text);
+                AddStatus.Text = "Added " + quantitySelect.Text + " items to cart";
+            }
+            else
+                AddStatus.Text = "Error, not enough items available";
         }
 
-        public void UpdateCartCookie(string itemId, string name, int quantity, string price)
+        /*public void UpdateCartCookie(string itemId, string name, int quantity, string price)
         {
             string newCookie = itemId.ToString() + "," + name  + "," + quantity.ToString()+ "," + price;
             if(Request.Cookies["shoppingcart"] == null)
                 Response.Cookies["shoppingcart"].Value = newCookie;
             else
                 Response.Cookies["shoppingcart"].Value = Request.Cookies["shoppingcart"].Value + "|" + newCookie ;
-        }
+        }*/
 
-        public void UpdateCartCookie2(string itemId, string name, int quantity, string price)
+        public void UpdateCartCookie(string itemId, string name, int quantity, string price)
         {
             bool found = false;
             string newCookie = itemId.ToString() + "," + name + "," + quantity.ToString() + "," + price;
